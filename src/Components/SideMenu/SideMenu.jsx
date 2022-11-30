@@ -31,17 +31,6 @@ import {
   FeedbackOutlinedIcon,
 } from "../exports";
 
-const explore = [
-  { name: "Trending", icon: <WhatshotIcon /> },
-  { name: "Music", icon: <MusicNoteIcon /> },
-  { name: "Movies", icon: <LocalMoviesIcon /> },
-  { name: "Live", icon: <LiveTvOutlinedIcon /> },
-  { name: "Gaming", icon: <VideogameAssetOutlinedIcon /> },
-  { name: "News", icon: <ArticleOutlinedIcon /> },
-  { name: "Sports", icon: <EmojiEventsOutlinedIcon /> },
-  { name: "Learning", icon: <LightbulbOutlinedIcon /> },
-  { name: "Fashion & Beauty", icon: <DryCleaningOutlinedIcon /> },
-];
 const SideMenu = () => {
   return (
     <div className="sidemenu-container">
@@ -85,12 +74,43 @@ const SideMenu = () => {
         <hr className="hLine" />
         <div className="menu-section">
           <h6 className="sub-head">Explore</h6>
-          {explore.map(({ name, icon }, index) => (
-            <Nav.Link className="menu-item" key={index}>
-              {icon}
-              <span className="menu-text">{name}</span>
-            </Nav.Link>
-          ))}
+
+          <Nav.Link className="menu-item">
+            <WhatshotIcon />
+            <span className="menu-text">Trending</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <MusicNoteIcon />
+            <span className="menu-text">Music</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <LocalMoviesIcon />
+            <span className="menu-text">Movies</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <LiveTvOutlinedIcon />
+            <span className="menu-text">Live</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <VideogameAssetOutlinedIcon />
+            <span className="menu-text">Gaming</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <ArticleOutlinedIcon />
+            <span className="menu-text">News</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <EmojiEventsOutlinedIcon />
+            <span className="menu-text">Sports</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <LightbulbOutlinedIcon />
+            <span className="menu-text">Learning</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <DryCleaningOutlinedIcon />
+            <span className="menu-text">Fashion&Beauty</span>
+          </Nav.Link>
         </div>
         <hr className="hLine" />
         <div className="menu-section">
