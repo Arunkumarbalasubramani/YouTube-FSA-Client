@@ -33,6 +33,7 @@ import {
   DryCleaningOutlinedIcon,
   LightbulbOutlinedIcon,
   AddCircleOutlineIcon,
+  FeedbackOutlinedIcon,
 } from "../exports";
 
 const explore = [
@@ -120,6 +121,43 @@ const SideMenu = () => {
             <span className="menu-text">YouTube TV</span>
           </Nav.Link>
         </div>
+        <hr className="hLine" />
+        <div className="menu-section">
+          <Nav.Link className="menu-item">
+            <SettingsOutlinedIcon />
+            <span className="menu-text">Settings</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <FlagOutlinedIcon />
+            <span className="menu-text">Report History</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <HelpOutlineOutlinedIcon />
+            <span className="menu-text">Help</span>
+          </Nav.Link>
+          <Nav.Link className="menu-item">
+            <FeedbackOutlinedIcon />
+            <span className="menu-text">Send feedback</span>
+          </Nav.Link>
+        </div>
+        <hr className="hLine" />
+        <div className="final">
+          <Nav.Link className="item1">About</Nav.Link>
+          <Nav.Link className="item2">Press</Nav.Link>
+          <Nav.Link className="item3">Copyright</Nav.Link>
+          <Nav.Link className="item4">Contact us</Nav.Link>
+          <Nav.Link className="item5">Creators</Nav.Link>
+          <Nav.Link className="item6">Advertise</Nav.Link>
+          <Nav.Link className="item7">Developers</Nav.Link>
+        </div>
+        <div className="final">
+          <Nav.Link>Terms</Nav.Link>
+          <Nav.Link>Privacy</Nav.Link>
+          <Nav.Link>Policy </Nav.Link>
+          <Nav.Link className="grid">How YouTube Works</Nav.Link>
+          <Nav.Link className="grid">Test New Features</Nav.Link>
+        </div>
+        <div className="copyright">© 2022 AKB LLC</div>
       </div>
     </div>
   );

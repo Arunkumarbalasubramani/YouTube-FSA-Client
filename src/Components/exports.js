@@ -26,3 +26,4 @@ export { default as EmojiEventsOutlinedIcon } from "@mui/icons-material/EmojiEve
 export { default as DryCleaningOutlinedIcon } from "@mui/icons-material/DryCleaningOutlined";
 export { default as LightbulbOutlinedIcon } from "@mui/icons-material/LightbulbOutlined";
 export { default as AddCircleOutlineIcon } from "@mui/icons-material/AddCircleOutline";
+export { default as FeedbackOutlinedIcon } from "@mui/icons-material/FeedbackOutlined";

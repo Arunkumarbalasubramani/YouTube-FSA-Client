@@ -67,9 +67,37 @@
 }
 .more-item {
   margin: 2%;
-  padding: 2%;
+  padding-left: 1rem;
 }
 .tvlogo {
   height: 18px;
   width: 18px;
+}
+.final {
+  margin: 2%;
+  padding: 0rem 1rem;
+  color: #aaaaaa;
+  font-weight: 700;
+  font-size: 13px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.item4 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  align-self: center;
+}
+.item6 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.grid {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.copyright {
+  color: #717171;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
 }
