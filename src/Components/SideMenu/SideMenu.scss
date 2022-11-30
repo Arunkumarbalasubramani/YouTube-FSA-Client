@@ -1,0 +1,75 @@
+.logo {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.app-logo {
+  height: 1.65rem;
+}
+.logo-text {
+  font-weight: 600;
+  font-family: Roboto, Arial, sans-serif;
+}
+.logo-helper {
+  color: #aaaaaa;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0f0f0f;
+  overflow-y: scroll;
+}
+.menu-section {
+  padding-left: 2%;
+  :hover {
+    background-color: #272727;
+  }
+}
+.shorts {
+  height: 24px;
+  width: 24px;
+}
+.menu-item {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 30px;
+  cursor: pointer;
+  height: 38px;
+  margin: 2%;
+  border-radius: 10px;
+}
+
+.menu-text {
+  :hover {
+    font-weight: 600;
+  }
+}
+
+.hLine {
+  margin: 15px 0px;
+  color: 1px solid #272727;
+}
+.Login {
+  margin: 2%;
+  padding: 0rem 1rem;
+}
+.sub-head {
+  font-size: large;
+  padding: 0rem 1rem;
+  background: #0f0f0f;
+}
+.more-item {
+  margin: 2%;
+  padding: 2%;
+}
+.tvlogo {
+  height: 18px;
+  width: 18px;
+}

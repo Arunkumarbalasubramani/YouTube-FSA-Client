@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/bootstrap";
+.App {
+  display: flex;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 7;
+}
+.menu {
+  height: 100vh;
+  background: #0f0f0f;
+  color: white;
+  flex: 1;
+}
