@@ -27,3 +27,14 @@ export { default as DryCleaningOutlinedIcon } from "@mui/icons-material/DryClean
 export { default as LightbulbOutlinedIcon } from "@mui/icons-material/LightbulbOutlined";
 export { default as AddCircleOutlineIcon } from "@mui/icons-material/AddCircleOutline";
 export { default as FeedbackOutlinedIcon } from "@mui/icons-material/FeedbackOutlined";
+export { default as SearchOutlinedIcon } from "@mui/icons-material/SearchOutlined";
+export { default as MicIcon } from "@mui/icons-material/Mic";
+export { default as MoreVertOutlinedIcon } from "@mui/icons-material/MoreVertOutlined";
+
+export { default as SafetyCheckIcon } from "@mui/icons-material/SafetyCheck";
+export { default as Brightness3OutlinedIcon } from "@mui/icons-material/Brightness3Outlined";
+export { default as TranslateOutlinedIcon } from "@mui/icons-material/TranslateOutlined";
+export { default as PolicyOutlinedIcon } from "@mui/icons-material/PolicyOutlined";
+export { default as LanguageOutlinedIcon } from "@mui/icons-material/LanguageOutlined";
+export { default as KeyboardAltOutlinedIcon } from "@mui/icons-material/KeyboardAltOutlined";
+export { default as KeyboardArrowRightOutlinedIcon } from "@mui/icons-material/KeyboardArrowRightOutlined";

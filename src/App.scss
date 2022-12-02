@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 .App {
   display: flex;
+  position: sticky;
+  top: 0;
 }
 .main {
   display: flex;
@@ -12,4 +14,15 @@
   background: #0f0f0f;
   color: white;
   flex: 1;
+  position: sticky;
+  top: 0;
+}
+#Light {
+  background: white;
+  color: black;
+}
+
+#Dark {
+  background: #0f0f0f;
+  color: white;
 }

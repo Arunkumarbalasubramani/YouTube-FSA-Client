@@ -2,4 +2,107 @@
   background: #0f0f0f;
   color: white;
   height: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  font-size: 15px;
+}
+
+.sign-in-btn {
+  background: transparent;
+  color: #3ea6ff;
+  border: 0.5px solid #383838;
+  border-radius: 15px;
+  font-size: 15px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin: 3%;
+  width: 125px;
+  height: 35px;
+  font-weight: 500;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: 85%;
+}
+.search {
+  position: relative;
+  display: flex;
+  width: 50%;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  border-radius: 20px;
+  border: 0.1px solid #303030;
+}
+.search-input {
+  width: 80%;
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 1rem;
+
+  height: 38px;
+  position: relative;
+}
+.search-btn {
+  background: transparent;
+  color: azure;
+  border: none;
+  border-radius: 50%;
+}
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  position: relative;
+}
+.more-actions {
+  position: absolute;
+  left: 90%;
+}
+.voice-search {
+  scale: 1.1;
+  :hover {
+    border-radius: 50%;
+
+    background: #383838;
+  }
+}
+.login-btn {
+  display: flex;
+  :hover {
+    background: #265a87;
+  }
+}
+.additional-options {
+  width: 73%;
+  height: 500px;
+  background-color: #282828;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  border-radius: 15px;
+  color: aliceblue;
+}
+
+.additional-options {
+  padding-left: 2%;
+  :hover {
+    background-color: #5c5b5b;
+  }
 }

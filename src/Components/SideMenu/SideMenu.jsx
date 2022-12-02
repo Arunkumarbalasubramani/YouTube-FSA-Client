@@ -67,9 +67,14 @@ const SideMenu = () => {
           </Nav.Link>
         </div>
         <hr className="hLine" />
-        <div className="Login">
-          <div>Sign in to like videos, comment, and subscribe.</div>
-          <AccountCircleOutlinedIcon />
+        <div className="login">
+          <p className="login-text">
+            Sign in to like videos, comment, and subscribe.
+          </p>
+          <button className="sign-in">
+            <AccountCircleOutlinedIcon />
+            Sign In
+          </button>
         </div>
         <hr className="hLine" />
         <div className="menu-section">
@@ -114,7 +119,10 @@ const SideMenu = () => {
         </div>
         <hr className="hLine" />
         <div className="menu-section">
-          <AddCircleOutlineIcon /> Browse Channels
+          <Nav.Link className="menu-item">
+            <AddCircleOutlineIcon />
+            <span className="menu-text"> Browse Channels</span>
+          </Nav.Link>
         </div>
         <hr className="hLine" />
         <div className="menu-section">
