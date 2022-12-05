@@ -30,12 +30,14 @@ import {
   AddCircleOutlineIcon,
   FeedbackOutlinedIcon,
 } from "../exports";
+import { useNavigate } from "react-router-dom";
 
 const SideMenu = () => {
+  const navigate = useNavigate();
   return (
     <div className="sidemenu-container">
       <div className="logo-container">
-        <Nav.Link className="logo">
+        <Nav.Link className="logo" onClick={() => navigate("/")}>
           <img src={YoutubeLogo} alt="app-logo" />
           <h5 className="logo-text">YouTube</h5>
           <p className="logo-helper">IN</p>
@@ -43,79 +45,87 @@ const SideMenu = () => {
       </div>
       <div className="menu-container">
         <div className="menu-section">
-          <Nav.Link className="menu-item">
+          <Nav.Link className="menu-item" onClick={() => navigate("/")}>
             <HomeIcon /> <span className="menu-text">Home</span>
           </Nav.Link>
           <Nav.Link className="menu-item">
             <img src={ShortsLogo} alt="" className="shorts" />{" "}
             <span className="menu-text">Shorts</span>
           </Nav.Link>
-          <Nav.Link className="menu-item">
+          <Nav.Link
+            className="menu-item"
+            onClick={() => navigate("/subscriptions")}
+          >
             <SubscriptionsOutlinedIcon />
             <span className="menu-text">Subscriptions</span>
           </Nav.Link>
         </div>
         <hr className="hLine" />
         <div className="menu-section">
-          <Nav.Link className="menu-item">
+          <Nav.Link className="menu-item" onClick={() => navigate("/library")}>
             <VideoLibraryOutlinedIcon />
             <span className="menu-text">Library</span>
           </Nav.Link>
           <Nav.Link className="menu-item">
             <HistoryOutlinedIcon />
-            <span className="menu-text">History</span>
+            <span className="menu-text" onClick={() => navigate("/history")}>
+              History
+            </span>
           </Nav.Link>
         </div>
         <hr className="hLine" />
-        <div className="login">
+        <div className="login-container">
           <p className="login-text">
             Sign in to like videos, comment, and subscribe.
           </p>
-          <button className="sign-in">
-            <AccountCircleOutlinedIcon />
-            Sign In
-          </button>
+          <div className="login">
+            <button className="sign-in">
+              <AccountCircleOutlinedIcon />
+              Sign In
+            </button>
+          </div>
         </div>
         <hr className="hLine" />
-        <div className="menu-section">
+        <div className="menu-section-container">
           <h6 className="sub-head">Explore</h6>
-
-          <Nav.Link className="menu-item">
-            <WhatshotIcon />
-            <span className="menu-text">Trending</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <MusicNoteIcon />
-            <span className="menu-text">Music</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <LocalMoviesIcon />
-            <span className="menu-text">Movies</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <LiveTvOutlinedIcon />
-            <span className="menu-text">Live</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <VideogameAssetOutlinedIcon />
-            <span className="menu-text">Gaming</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <ArticleOutlinedIcon />
-            <span className="menu-text">News</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <EmojiEventsOutlinedIcon />
-            <span className="menu-text">Sports</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <LightbulbOutlinedIcon />
-            <span className="menu-text">Learning</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <DryCleaningOutlinedIcon />
-            <span className="menu-text">Fashion&Beauty</span>
-          </Nav.Link>
+          <div className="menu-section">
+            <Nav.Link className="menu-item">
+              <WhatshotIcon />
+              <span className="menu-text">Trending</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <MusicNoteIcon />
+              <span className="menu-text">Music</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <LocalMoviesIcon />
+              <span className="menu-text">Movies</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <LiveTvOutlinedIcon />
+              <span className="menu-text">Live</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <VideogameAssetOutlinedIcon />
+              <span className="menu-text">Gaming</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <ArticleOutlinedIcon />
+              <span className="menu-text">News</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <EmojiEventsOutlinedIcon />
+              <span className="menu-text">Sports</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <LightbulbOutlinedIcon />
+              <span className="menu-text">Learning</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <DryCleaningOutlinedIcon />
+              <span className="menu-text">Fashion&Beauty</span>
+            </Nav.Link>
+          </div>
         </div>
         <hr className="hLine" />
         <div className="menu-section">
@@ -125,24 +135,26 @@ const SideMenu = () => {
           </Nav.Link>
         </div>
         <hr className="hLine" />
-        <div className="menu-section">
+        <div className="menu-section-container">
           <h6 className="sub-head">More From YouTube</h6>
-          <Nav.Link className="menu-item">
-            <img src={PremiumLogo} alt="" className="shorts" />{" "}
-            <span className="menu-text">YouTubePremium</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <img src={MusicLogo} alt="" className="shorts" />{" "}
-            <span className="menu-text">YouTube Music</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <img src={PremiumLogo} alt="" className="shorts" />{" "}
-            <span className="menu-text">YouTube Kids</span>
-          </Nav.Link>
-          <Nav.Link className="menu-item">
-            <img src={TVLogo} alt="" className="tvlogo" />{" "}
-            <span className="menu-text">YouTube TV</span>
-          </Nav.Link>
+          <div className="menu-section">
+            <Nav.Link className="menu-item">
+              <img src={PremiumLogo} alt="" className="shorts" />{" "}
+              <span className="menu-text">YouTubePremium</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <img src={MusicLogo} alt="" className="shorts" />{" "}
+              <span className="menu-text">YouTube Music</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <img src={PremiumLogo} alt="" className="shorts" />{" "}
+              <span className="menu-text">YouTube Kids</span>
+            </Nav.Link>
+            <Nav.Link className="menu-item">
+              <img src={TVLogo} alt="" className="tvlogo" />{" "}
+              <span className="menu-text">YouTube TV</span>
+            </Nav.Link>
+          </div>
         </div>
         <hr className="hLine" />
         <div className="menu-section">

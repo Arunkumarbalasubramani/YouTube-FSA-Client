@@ -1,6 +1,13 @@
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as SideMenu } from "./SideMenu/SideMenu";
+export { default as History } from "./History/History";
+export { default as Library } from "./Library/Library";
+export { default as Subscriptions } from "./Subscriptions/Subscriptions";
+export { default as VideosPage } from "./Videos/VideosPage";
+export { default as WatchLater } from "./WatchLater/WatchLater";
 export { default as MainFeed } from "./MainFeed/MainFeed";
+export { default as ChannelPage } from "./ChannelPage/ChannelPage";
+
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as ExploreOutlinedIcon } from "@mui/icons-material/ExploreOutlined";
 export { default as SubscriptionsOutlinedIcon } from "@mui/icons-material/SubscriptionsOutlined";
@@ -38,3 +45,8 @@ export { default as PolicyOutlinedIcon } from "@mui/icons-material/PolicyOutline
 export { default as LanguageOutlinedIcon } from "@mui/icons-material/LanguageOutlined";
 export { default as KeyboardAltOutlinedIcon } from "@mui/icons-material/KeyboardAltOutlined";
 export { default as KeyboardArrowRightOutlinedIcon } from "@mui/icons-material/KeyboardArrowRightOutlined";
+export { default as PlaylistAddOutlinedIcon } from "@mui/icons-material/PlaylistAddOutlined";
+export { default as ShareOutlinedIcon } from "@mui/icons-material/ShareOutlined";
+export { default as MoreHorizOutlinedIcon } from "@mui/icons-material/MoreHorizOutlined";
+
+export { default as SortOutlinedIcon } from "@mui/icons-material/SortOutlined";

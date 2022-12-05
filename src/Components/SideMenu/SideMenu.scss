@@ -5,6 +5,11 @@
   justify-content: center;
   gap: 5px;
 }
+#Light .logo {
+  background: #ffffff;
+  color: #000;
+}
+
 .app-logo {
   height: 1.65rem;
 }
@@ -22,13 +27,22 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #0f0f0f;
+
   overflow-y: scroll;
+}
+#Light .menu-container {
+  background: #ffffff;
+  color: #000;
 }
 .menu-section {
   padding-left: 2%;
   :hover {
     background-color: #272727;
+  }
+}
+#Light .menu-section {
+  :hover {
+    background-color: #d6d3d3;
   }
 }
 .shorts {
@@ -63,11 +77,21 @@
     background: #265a87;
   }
 }
+#Light .login {
+  :hover {
+    background: #a7d5ff;
+  }
+}
+.login-text {
+  padding-left: 2rem;
+}
+
 .sub-head {
   font-size: large;
   padding: 0rem 1rem;
-  background: #0f0f0f;
+  // background: #0f0f0f;
 }
+
 .more-item {
   margin: 2%;
   padding-left: 1rem;
@@ -94,11 +118,17 @@
 .final {
   margin: 2%;
   padding: 0rem 1rem;
-  color: #aaaaaa;
+
   font-weight: 700;
   font-size: 13px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+#Light.final {
+  color: rgb(110, 104, 104);
+}
+#Dark.final {
+  color: #aaaaaa;
 }
 .item4 {
   grid-column-start: 1;

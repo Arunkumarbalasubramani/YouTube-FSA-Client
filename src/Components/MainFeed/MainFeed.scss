@@ -1,0 +1,128 @@
+.mainfeed-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2% 4%;
+  cursor: pointer;
+}
+#Dark .mainfeed-container {
+  background: #0f0f0f;
+  color: #fff;
+}
+
+#Light .mainfeed-container {
+  background-color: #f8f8f8;
+  color: black;
+}
+.videocard-container {
+  width: 360px;
+  // height: 290px;
+  // background-color: red;
+  margin-bottom: 2.2rem;
+  border-radius: 18px;
+  padding: 1%;
+  cursor: pointer;
+  // :hover {
+  //   scale: 1.25;
+  //   transition-duration: 300ms;
+  // }
+}
+.video-thumbnail {
+  width: 100%;
+  height: 202px;
+  background: #999;
+  border-radius: 16px;
+}
+.channel-details {
+  display: flex;
+  gap: 20px;
+  margin: 3% 0%;
+  padding: 1%;
+  // background-color: red;
+  max-height: 125px;
+  align-items: flex-start;
+  position: relative;
+}
+.channel-thumbnail {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.video-title {
+  font-weight: 600;
+  line-height: 22px;
+  font-size: 16px;
+  margin: 0;
+}
+#Dark .video-title {
+  color: #fff;
+}
+
+#Light .video-title {
+  color: black;
+}
+.videos {
+  display: flex;
+  align-items: center;
+}
+.views {
+  display: flex;
+  gap: 10px;
+
+  font-size: 15px;
+  margin: 0;
+  font-weight: 400;
+}
+#Dark .views {
+  color: #a8a8a8;
+}
+
+#Light .views {
+  color: #4f4d4d;
+}
+.channel-name {
+  margin: 5px 0px 0px 0px;
+
+  font-size: 15px;
+  font-weight: 400;
+}
+#Dark .channel-name {
+  color: #a8a8a8;
+}
+
+#Light .channel-name {
+  color: #4f4d4d;
+}
+.addto {
+  width: 60%;
+  height: 80px;
+
+  border-radius: 15px;
+  position: absolute;
+  left: 88%;
+}
+
+#Dark .addto {
+  background: #282828;
+  :hover {
+    background-color: rgb(75, 75, 75);
+  }
+}
+
+#Light .addto {
+  background: #ffffff;
+  border: 1px solid gray;
+  :hover {
+    background-color: rgb(203, 203, 203);
+  }
+}
+.addon-item {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 10px 0px 0px 15px;
+}
+#Dark .main {
+  background: black;
+  color: #f8f8f8;
+}

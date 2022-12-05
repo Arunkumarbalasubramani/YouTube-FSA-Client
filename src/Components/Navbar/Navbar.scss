@@ -1,6 +1,4 @@
 .NavbarContainer {
-  background: #0f0f0f;
-  color: white;
   height: 4rem;
   width: 100%;
   display: flex;
@@ -10,7 +8,10 @@
   top: 0;
   font-size: 15px;
 }
-
+#Light.NavbarContainer {
+  background: #ffffff;
+  color: #0f0f0f;
+}
 .sign-in-btn {
   background: transparent;
   color: #3ea6ff;
@@ -50,20 +51,30 @@
 }
 .search-input {
   width: 80%;
-  background: transparent;
-  color: white;
+  // background: transparent;
+  // color: white;
   border: none;
   padding: 1rem;
 
   height: 38px;
   position: relative;
 }
+#Dark .search-input {
+  background: #121212;
+  color: #ffffff;
+}
+
 .search-btn {
   background: transparent;
-  color: azure;
+  // color: azure;
   border: none;
   border-radius: 50%;
 }
+#Dark .search-btn {
+  background: #121212;
+  color: #ffffff;
+}
+
 .more {
   display: flex;
   justify-content: center;
@@ -80,7 +91,14 @@
   :hover {
     border-radius: 50%;
 
-    background: #383838;
+    background: #dedbdb;
+  }
+}
+#Dark .voice-search {
+  :hover {
+    border-radius: 50%;
+
+    background: #424141;
   }
 }
 .login-btn {
@@ -89,20 +107,37 @@
     background: #265a87;
   }
 }
+#Light .login-btn {
+  :hover {
+    background: #a7d5ff;
+  }
+}
 .additional-options {
   width: 73%;
   height: 500px;
-  background-color: #282828;
+  padding-left: 2%;
   position: absolute;
   top: 20px;
   right: 30px;
   border-radius: 15px;
-  color: aliceblue;
+  z-index: 9;
+  background: #fff;
 }
+#Dark Link {
+  color: white;
+}
+#Dark .additional-options {
+  background-color: #282828;
+  color: aliceblue;
 
-.additional-options {
-  padding-left: 2%;
   :hover {
     background-color: #5c5b5b;
+  }
+}
+#Light .additional-options {
+  border: 1px solid #bcbcbc;
+  background: #fff;
+  :hover {
+    background-color: #d6d3d3;
   }
 }

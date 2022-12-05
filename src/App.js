@@ -1,7 +1,18 @@
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { MainFeed, Navbar, SideMenu } from "./Components/exports";
+import {
+  MainFeed,
+  Navbar,
+  SideMenu,
+  History,
+  Library,
+  Subscriptions,
+  VideosPage,
+  ChannelPage,
+} from "./Components/exports";
+
 import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const ThemeContext = createContext(null);
 function App() {
@@ -10,17 +21,26 @@ function App() {
     setTheme((current) => (current === "Light" ? "Dark" : "Light"));
   };
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
-        <div className="menu">
-          <SideMenu />
+    <BrowserRouter>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <div className="App" id={theme}>
+          <div className="menu">
+            <SideMenu />
+          </div>
+          <div className="main">
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
+            <Routes>
+              <Route path="/" element={<MainFeed />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/subscriptions" element={<Subscriptions />} />
+              <Route path="/video/:videoId" element={<VideosPage />} />
+              <Route path="/channel/:channelId" element={<ChannelPage />} />
+            </Routes>
+          </div>
         </div>
-        <div className="main">
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
-          <MainFeed />
-        </div>
-      </div>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </BrowserRouter>
   );
 }
 

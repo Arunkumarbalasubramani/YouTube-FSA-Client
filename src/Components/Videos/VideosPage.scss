@@ -1,0 +1,139 @@
+.video-container {
+  display: flex;
+
+  gap: 24px;
+  margin-left: 2%;
+}
+.video-wrapper {
+  flex: 5;
+}
+.recomendation-section {
+  flex: 2;
+}
+.title {
+  font-size: 20px;
+  margin: 2% 0% 0% 0%;
+}
+.channel-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.channel-info {
+  margin: 10px 0px;
+  display: flex;
+  gap: 15px;
+}
+.channel-logo,
+.account-image {
+  background: gray;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+.subscribe-btn {
+  border: none;
+  border-radius: 15px;
+  height: 35px;
+  width: 96px;
+  text-align: center;
+}
+#Light .subscribe-btn {
+  background: black;
+  color: white;
+  border: none;
+}
+#Dark .subscribe-btn {
+  background: white;
+  color: black;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+.action-btn1 {
+  width: 130px;
+  height: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.action-btn {
+  width: 90px;
+  height: 35px;
+}
+.action-btn,
+.action-btn1,
+.action-btn2 {
+  border: none;
+
+  border-radius: 15px;
+}
+.dislike-btn {
+  border: none;
+  background: #f2f2f2;
+  border-left: 1px solid black;
+  padding-left: 2%;
+}
+.action-btn2 {
+  border-radius: 50%;
+}
+#Light .action-btn,
+#Light .action-btn1,
+#Light .action-btn2,
+#Light .dislike-btn {
+  background: #f2f2f2;
+  color: black;
+}
+#Dark .action-btn,
+#Dark .action-btn1,
+#Dark .action-btn2,
+#Dark .dislike-btn {
+  background: #282727;
+  color: white;
+}
+.description {
+  width: 1261px;
+  height: 103px;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+#Light .description {
+  background: #f2f2f2;
+}
+#Dark .description {
+  background: #282727;
+}
+
+.comments-number {
+  display: flex;
+  margin: 2% 0%;
+  gap: 50px;
+  padding: 3px;
+}
+.comment-input {
+  width: 1195px;
+  border: none;
+}
+#Light .comment-input {
+  border-bottom: 1px solid black;
+}
+#Dark .comment-input {
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
+}
+.add-comments {
+  display: flex;
+  gap: 20px;
+}
+.previous-comments {
+  margin-top: 5%;
+  display: flex;
+  gap: 20px;
+}
+.comment-content {
+  width: 1195px;
+  background: grey;
+}
