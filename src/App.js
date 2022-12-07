@@ -9,6 +9,7 @@ import {
   Subscriptions,
   VideosPage,
   ChannelPage,
+  WatchLater,
 } from "./Components/exports";
 
 import { createContext, useState } from "react";
@@ -16,13 +17,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const ThemeContext = createContext(null);
 function App() {
-  const [theme, setTheme] = useState("Light");
+  const current = "Light";
+  const [theme, setTheme] = useState(current);
   const toggleTheme = () => {
     setTheme((current) => (current === "Light" ? "Dark" : "Light"));
   };
   return (
-    <BrowserRouter>
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <BrowserRouter>
         <div className="App" id={theme}>
           <div className="menu">
             <SideMenu />
@@ -33,14 +35,15 @@ function App() {
               <Route path="/" element={<MainFeed />} />
               <Route path="/history" element={<History />} />
               <Route path="/library" element={<Library />} />
+              <Route path="/watchlater" element={<WatchLater />} />
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/video/:videoId" element={<VideosPage />} />
               <Route path="/channel/:channelId" element={<ChannelPage />} />
             </Routes>
           </div>
         </div>
-      </ThemeContext.Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
 

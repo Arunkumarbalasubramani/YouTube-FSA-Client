@@ -1,8 +1,7 @@
 import React from "react";
-import { Button, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import ReactPlayer from "react-player";
-import YouTube from "react-youtube";
-import VideoCard from "../MainFeed/VideoCard";
+
 import "./VideosPage.scss";
 import { RiShareForwardLine } from "react-icons/ri";
 import { BiDislike, BiLike } from "react-icons/bi";
@@ -11,7 +10,11 @@ import {
   PlaylistAddOutlinedIcon,
   SortOutlinedIcon,
 } from "../exports";
+import { useNavigate } from "react-router-dom";
+import SmallvideoCard from "./SmallvidoCard";
+import ChannelInfo from "./ChannelInfo";
 const VideosPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="video-container">
       <div className="video-wrapper">
@@ -26,14 +29,7 @@ const VideosPage = () => {
         <h1 className="title">Test Video</h1>
         <div className="details">
           <div className="channel-section">
-            <div className="channel-info">
-              <img src="" className="channel-logo" />
-              <div className="channel">
-                <div className="channel-title">Sony South India</div>
-                <div className="channel-subscribers">13.4M Subscribers</div>
-              </div>
-              <button className="subscribe-btn">Subscribe</button>
-            </div>
+            <ChannelInfo />
             <div className="buttons">
               <button className="action-btn1">
                 <div className="like-btn">
@@ -85,7 +81,7 @@ const VideosPage = () => {
               </Nav.Link>
             </div>
             <div className="add-comments">
-              <img src="" className="account-image" />
+              <img src="" className="account-image" alt="account-avatar" />
               <input
                 type="text"
                 name="add-comments"
@@ -95,29 +91,31 @@ const VideosPage = () => {
               />
             </div>
             <div className="previous-comments">
-              <img src="" className="account-image" />
+              <img src="" className="account-image" alt="account-avatar" />
               <div className="comments">
                 <div className="userName">
                   @arunKur <span> 5 Days ago</span>
                 </div>
-                <div className="comment-content"></div>
+                <div className="comment-content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+                  minus saepe nihil repellendus, accusantium quaerat sed eius
+                  odit numquam consequuntur. Quae voluptatibus eligendi ut
+                  dignissimos!
+                </div>
+                <div className="comment-actions">
+                  <BiLike size={22} /> <BiDislike size={22} />
+                </div>
               </div>
             </div>
-            <div className="replyTo-comments"></div>
           </div>
         </div>
       </div>
       <div className="recomendation-section">
-        <VideoCard />
-
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-
-        <VideoCard />
+        <SmallvideoCard />
+        <SmallvideoCard />
+        <SmallvideoCard />
+        <SmallvideoCard />
+        <SmallvideoCard />
       </div>
     </div>
   );

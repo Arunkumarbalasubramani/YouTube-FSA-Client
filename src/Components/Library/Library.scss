@@ -1,0 +1,90 @@
+.lib-nologin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  gap: 20px;
+}
+.library-container {
+  // height: 100vh;
+}
+.lib-login {
+  width: 10%;
+}
+.lib-icon {
+  scale: 4;
+  margin: 2%;
+}
+.lib-text1 {
+  font-size: 24px;
+}
+.lib-text2 {
+  font-size: 14px;
+}
+
+#Dark .lib-login {
+  :hover {
+    background: #265a87;
+  }
+}
+.seeAll-btn {
+  border: none;
+  background: transparent;
+  color: #3ea6ff;
+  font-weight: 500;
+  border-radius: 12px;
+}
+#Light .seeAll-btn {
+  :hover {
+    background: #98cefe;
+  }
+}
+#Dark .seeAll-btn {
+  :hover {
+    background: #265a87;
+  }
+}
+.library-loggedIn {
+  padding: 0rem 10rem;
+  display: flex;
+  gap: 30px;
+}
+.user-library {
+  margin: 2%;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lib-title {
+  display: flex;
+  gap: 20px;
+}
+.history-videos {
+  height: 208px;
+  width: 208px;
+}
+.user-library-videos {
+  display: flex;
+  margin-top: 2%;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+.account-avatar {
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.user-details {
+  display: flex;
+
+  flex-direction: column;
+}
+.detail {
+  display: flex;
+  justify-content: space-between;
+}

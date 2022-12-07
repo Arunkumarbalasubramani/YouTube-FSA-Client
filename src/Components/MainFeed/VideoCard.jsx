@@ -9,35 +9,39 @@ import {
 
 import { Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-const VideoCard = () => {
+const VideoCard = ({ thumbnailStyle, videocardStyle }) => {
   const [showaddto, setShowAddto] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="videocard-container">
+    <div className={!videocardStyle ? "videocard-container" : videocardStyle}>
       <img
         src={thumbnail}
         alt="video-thumbnail"
-        className="video-thumbnail"
+        className={!thumbnailStyle ? "video-thumbnail" : thumbnailStyle}
         onClick={() => navigate("/video/test")}
       />
-      <div className="channel-details" o>
-        <img
-          src={thumbnail}
-          alt="channel-thumbnail"
-          className="channel-thumbnail"
-          onClick={() => navigate("/channel/:channelId")}
-        />
+      <div className="channel-details">
+        {!thumbnailStyle ? (
+          <img
+            src={thumbnail}
+            alt="channel-thumbnail"
+            className="channel-thumbnail"
+            onClick={() => navigate("/channel/:channelId")}
+          />
+        ) : null}
         <div className="video-details">
           <div className="videos">
             <h1 className="video-title" onClick={() => navigate("/video/test")}>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             </h1>
-            <Nav.Link
-              className="addon-item"
-              onClick={() => setShowAddto(!showaddto)}
-            >
-              <MoreVertOutlinedIcon />
-            </Nav.Link>
+            {!thumbnailStyle ? (
+              <Nav.Link
+                className="addon-item"
+                onClick={() => setShowAddto(!showaddto)}
+              >
+                <MoreVertOutlinedIcon />
+              </Nav.Link>
+            ) : null}
           </div>
           {showaddto ? (
             <div className="addto">

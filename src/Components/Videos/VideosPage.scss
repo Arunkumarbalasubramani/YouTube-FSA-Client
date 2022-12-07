@@ -4,11 +4,14 @@
   gap: 24px;
   margin-left: 2%;
 }
+
 .video-wrapper {
   flex: 5;
+  margin-top: 1%;
 }
 .recomendation-section {
   flex: 2;
+  margin-top: 1%;
 }
 .title {
   font-size: 20px;
@@ -22,14 +25,21 @@
 .channel-info {
   margin: 10px 0px;
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
 }
 .channel-logo,
-.account-image {
+.account-image,
+.channel-page {
   background: gray;
   height: 48px;
   width: 48px;
   border-radius: 50%;
+}
+.channelTitle {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 .subscribe-btn {
   border: none;
@@ -99,6 +109,10 @@
   padding: 10px 10px;
   border-radius: 10px;
 }
+.channel-title,
+.channel-thumbnail {
+  cursor: pointer;
+}
 #Light .description {
   background: #f2f2f2;
 }
@@ -135,5 +149,44 @@
 }
 .comment-content {
   width: 1195px;
+  height: 95px;
   background: grey;
+  padding: 1%;
+}
+.comment-actions {
+  display: flex;
+  gap: 50px;
+  margin: 1%;
+  align-items: center;
+  cursor: pointer;
+}
+.smallvideo-card {
+  display: flex;
+  gap: 10px;
+  height: 95px;
+  margin-bottom: 3%;
+}
+.recommendation-thumbnail {
+  width: 167px;
+  height: 95px;
+  border-radius: 15px;
+}
+.rec-title {
+  font-size: 14px;
+}
+.rec-channel-name,
+.rec-views {
+  font-size: 12px;
+  display: flex;
+  margin: 0;
+  color: #606060;
+}
+
+#Dark .rec-channel-name,
+#Dark .rec-views {
+  color: #aaaaaa;
+}
+.channel-page {
+  height: 78px;
+  width: 78px;
 }

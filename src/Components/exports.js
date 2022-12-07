@@ -50,3 +50,6 @@ export { default as ShareOutlinedIcon } from "@mui/icons-material/ShareOutlined"
 export { default as MoreHorizOutlinedIcon } from "@mui/icons-material/MoreHorizOutlined";
 
 export { default as SortOutlinedIcon } from "@mui/icons-material/SortOutlined";
+export { default as HistoryIcon } from "@mui/icons-material/History";
+export { default as WatchLaterOutlinedIcon } from "@mui/icons-material/WatchLaterOutlined";
+export { default as ThumbUpOutlinedIcon } from "@mui/icons-material/ThumbUpOutlined";
