@@ -79,7 +79,7 @@ const SideMenu = () => {
             Sign in to like videos, comment, and subscribe.
           </p>
           <div className="login">
-            <button className="sign-in">
+            <button className="sign-in" onClick={() => navigate("/signin")}>
               <AccountCircleOutlinedIcon />
               Sign In
             </button>

@@ -1,0 +1,47 @@
+.heading {
+  font-weight: 600;
+}
+
+.history-loggedIn {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 10rem;
+
+  gap: 60px;
+}
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.today-videocard {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 1%;
+}
+.today-video-thumbnail {
+  border-radius: 14px;
+  cursor: pointer;
+}
+.history-actions-icons {
+  cursor: pointer;
+  border-radius: 50%;
+  :hover {
+    background: grey;
+  }
+}
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.deleteAll-icon {
+  scale: 1.5;
+}
+#Light .deleteAll-icon {
+  color: black;
+}
+#Dark .deleteAll-icon {
+  color: WHite;
+}

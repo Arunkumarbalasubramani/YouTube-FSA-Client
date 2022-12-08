@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
+import { Button, Nav } from "react-bootstrap";
 import ReactPlayer from "react-player";
 
 import "./VideosPage.scss";
@@ -13,8 +13,17 @@ import {
 import { useNavigate } from "react-router-dom";
 import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
+
 const VideosPage = () => {
   const navigate = useNavigate();
+  const opts = {
+    height: "1262",
+    width: "715",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
   return (
     <div className="video-container">
       <div className="video-wrapper">
@@ -24,6 +33,7 @@ const VideosPage = () => {
             className="video-Playback"
             width="1262px"
             height="715px"
+            controls
           />
         </div>
         <h1 className="title">Test Video</h1>
@@ -89,6 +99,9 @@ const VideosPage = () => {
                 placeholder="Add Comment"
                 className="comment-input"
               />
+            </div>
+            <div className="comment-btn">
+              <Button>Comment</Button>
             </div>
             <div className="previous-comments">
               <img src="" className="account-image" alt="account-avatar" />

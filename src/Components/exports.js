@@ -1,12 +1,14 @@
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as SideMenu } from "./SideMenu/SideMenu";
 export { default as History } from "./History/History";
+
 export { default as Library } from "./Library/Library";
 export { default as Subscriptions } from "./Subscriptions/Subscriptions";
 export { default as VideosPage } from "./Videos/VideosPage";
-export { default as WatchLater } from "./WatchLater/WatchLater";
+export { default as WatchLater } from "./History/WatchLater";
 export { default as MainFeed } from "./MainFeed/MainFeed";
 export { default as ChannelPage } from "./ChannelPage/ChannelPage";
+export { default as SignIn } from "./SignIn";
 
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as ExploreOutlinedIcon } from "@mui/icons-material/ExploreOutlined";
@@ -53,3 +55,5 @@ export { default as SortOutlinedIcon } from "@mui/icons-material/SortOutlined";
 export { default as HistoryIcon } from "@mui/icons-material/History";
 export { default as WatchLaterOutlinedIcon } from "@mui/icons-material/WatchLaterOutlined";
 export { default as ThumbUpOutlinedIcon } from "@mui/icons-material/ThumbUpOutlined";
+export { default as CloseOutlinedIcon } from "@mui/icons-material/CloseOutlined";
+export { default as DeleteSweepOutlinedIcon } from "@mui/icons-material/DeleteSweepOutlined";

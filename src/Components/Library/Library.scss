@@ -6,9 +6,7 @@
   height: 600px;
   gap: 20px;
 }
-.library-container {
-  // height: 100vh;
-}
+
 .lib-login {
   width: 10%;
 }
@@ -78,7 +76,9 @@
   background-color: gray;
   border-radius: 50%;
 }
-
+.heading {
+  font-weight: 600;
+}
 .user-details {
   display: flex;
 

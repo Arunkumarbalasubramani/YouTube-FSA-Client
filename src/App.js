@@ -10,6 +10,7 @@ import {
   VideosPage,
   ChannelPage,
   WatchLater,
+  SignIn,
 } from "./Components/exports";
 
 import { createContext, useState } from "react";
@@ -39,6 +40,7 @@ function App() {
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/video/:videoId" element={<VideosPage />} />
               <Route path="/channel/:channelId" element={<ChannelPage />} />
+              <Route path="/signin" element={<SignIn />} />
             </Routes>
           </div>
         </div>

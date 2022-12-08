@@ -170,6 +170,7 @@
   width: 167px;
   height: 95px;
   border-radius: 15px;
+  cursor: pointer;
 }
 .rec-title {
   font-size: 14px;
@@ -189,4 +190,8 @@
 .channel-page {
   height: 78px;
   width: 78px;
+}
+.comment-btn {
+  margin: 1%;
+  padding-left: 90%;
 }

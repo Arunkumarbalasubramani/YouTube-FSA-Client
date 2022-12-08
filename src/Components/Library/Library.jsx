@@ -23,7 +23,7 @@ const Library = () => {
             Sign in to access videos that you've liked or saved
           </h6>
           <div className="lib-login">
-            <button className="sign-in">
+            <button className="sign-in" onClick={() => navigate("/signin")}>
               <AccountCircleOutlinedIcon />
               Sign In
             </button>

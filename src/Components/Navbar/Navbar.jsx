@@ -19,10 +19,11 @@ import {
   KeyboardAltOutlinedIcon,
   KeyboardArrowRightOutlinedIcon,
 } from "../exports";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [showMore, setShowMore] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <div className="NavbarContainer">
       <div className="search-container">
@@ -114,7 +115,7 @@ const Navbar = ({ theme, toggleTheme }) => {
       </div>
 
       <div className="login-btn">
-        <button className="sign-in-btn">
+        <button className="sign-in-btn" onClick={() => navigate("/signin")}>
           <AccountCircleOutlinedIcon />
           Sign In
         </button>
