@@ -26,3 +26,79 @@
   background: #0f0f0f;
   color: white;
 }
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.sign-in-card {
+  height: 620px;
+  width: 450px;
+  border-radius: 15px;
+}
+#Light .sign-in-card {
+  border: 1px solid gray;
+}
+#Dark .sign-in-card {
+  border: 1px solid gray;
+}
+.page-title {
+  text-align: center;
+}
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4%;
+  gap: 10px;
+}
+.input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.google-icon {
+  scale: 1.5;
+}
+
+.text-input {
+  height: 52px;
+  width: 360px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+#Light .text-input {
+  background: white;
+  color: black;
+}
+
+#Dark .text-input {
+  background: #0f0f0f;
+  color: white;
+}
+.sign-in-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 4%;
+}
+
+.addnl-actions {
+  margin: 4% 2%;
+  padding-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sign-up {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.sign-up-link {
+  color: #619fef;
+}

@@ -9,6 +9,7 @@ export { default as WatchLater } from "./History/WatchLater";
 export { default as MainFeed } from "./MainFeed/MainFeed";
 export { default as ChannelPage } from "./ChannelPage/ChannelPage";
 export { default as SignIn } from "./SignIn";
+export { default as SignUp } from "./SignUp";
 
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as ExploreOutlinedIcon } from "@mui/icons-material/ExploreOutlined";
@@ -57,3 +58,4 @@ export { default as WatchLaterOutlinedIcon } from "@mui/icons-material/WatchLate
 export { default as ThumbUpOutlinedIcon } from "@mui/icons-material/ThumbUpOutlined";
 export { default as CloseOutlinedIcon } from "@mui/icons-material/CloseOutlined";
 export { default as DeleteSweepOutlinedIcon } from "@mui/icons-material/DeleteSweepOutlined";
+export { default as GoogleIcon } from "@mui/icons-material/Google";

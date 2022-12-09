@@ -11,6 +11,7 @@ import {
   ChannelPage,
   WatchLater,
   SignIn,
+  SignUp,
 } from "./Components/exports";
 
 import { createContext, useState } from "react";
@@ -41,6 +42,7 @@ function App() {
               <Route path="/video/:videoId" element={<VideosPage />} />
               <Route path="/channel/:channelId" element={<ChannelPage />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
             </Routes>
           </div>
         </div>
