@@ -3,14 +3,9 @@ import "./History.scss";
 
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import {
-  AccountCircleOutlinedIcon,
-  HistoryIcon,
-  DeleteSweepOutlinedIcon,
-} from "../exports";
+import { DeleteSweepOutlinedIcon } from "../exports";
 import TodayVideoCard from "./TodayVideoCard";
 const WatchLater = () => {
-  const isAccountLoggedIn = true;
   return (
     <div className="library-container">
       <div className="history-loggedIn">

@@ -2,7 +2,7 @@ import React from "react";
 import "./ChannelPage.scss";
 import testCoverPic from "../../assets/testCover.png";
 import ChannelInfo from "../Videos/ChannelInfo";
-import { Nav } from "react-bootstrap";
+
 import VideoCard from "../MainFeed/VideoCard";
 const ChannelPage = () => {
   const logoStyle = "channel-page";

@@ -10,20 +10,11 @@ import {
   PlaylistAddOutlinedIcon,
   SortOutlinedIcon,
 } from "../exports";
-import { useNavigate } from "react-router-dom";
+
 import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
 
 const VideosPage = () => {
-  const navigate = useNavigate();
-  const opts = {
-    height: "1262",
-    width: "715",
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
-  };
   return (
     <div className="video-container">
       <div className="video-wrapper">

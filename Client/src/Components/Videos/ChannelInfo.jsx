@@ -8,6 +8,7 @@ const ChannelInfo = ({ logoStyle }) => {
       <div className="channelTitle">
         <img
           src=""
+          alt="channel-thumbnail"
           className={!logoStyle ? "channel-logo" : logoStyle}
           onClick={() => navigate("/channel/test")}
         />
