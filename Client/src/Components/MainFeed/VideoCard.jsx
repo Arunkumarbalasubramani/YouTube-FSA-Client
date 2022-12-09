@@ -31,9 +31,14 @@ const VideoCard = ({ thumbnailStyle, videocardStyle }) => {
         ) : null}
         <div className="video-details">
           <div className="videos">
-            <h1 className="video-title" onClick={() => navigate("/video/test")}>
+            <Nav.Link
+              className="video-title"
+              onClick={() => navigate("/video/test")}
+            >
+              {" "}
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            </h1>
+            </Nav.Link>
+
             {!thumbnailStyle ? (
               <Nav.Link
                 className="addon-item"

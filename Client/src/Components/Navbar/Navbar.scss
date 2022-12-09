@@ -8,10 +8,7 @@
   top: 0;
   font-size: 15px;
 }
-#Light.NavbarContainer {
-  background: #ffffff;
-  color: #0f0f0f;
-}
+
 .sign-in-btn {
   background: transparent;
   color: #3ea6ff;
@@ -116,12 +113,12 @@
   width: 73%;
   height: 500px;
   padding-left: 2%;
+
   position: absolute;
   top: 20px;
   right: 30px;
   border-radius: 15px;
-  z-index: 9;
-  background: #fff;
+  z-index: -1;
 }
 #Dark Link {
   color: white;
