@@ -29,6 +29,7 @@ import {
   LightbulbOutlinedIcon,
   AddCircleOutlineIcon,
   FeedbackOutlinedIcon,
+  MenuIcon,
 } from "../exports";
 import { useNavigate } from "react-router-dom";
 
@@ -37,6 +38,7 @@ const SideMenu = () => {
   return (
     <div className="sidemenu-container">
       <div className="logo-container">
+        <MenuIcon style={{ scale: "1.5", cursor: "pointer" }} />
         <Nav.Link className="logo" onClick={() => navigate("/")}>
           <img src={YoutubeLogo} alt="app-logo" />
           <h5 className="logo-text">YouTube</h5>

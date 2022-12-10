@@ -61,3 +61,4 @@ export { default as DeleteSweepOutlinedIcon } from "@mui/icons-material/DeleteSw
 export { default as GoogleIcon } from "@mui/icons-material/Google";
 export { default as NotificationsActiveIcon } from "@mui/icons-material/NotificationsActive";
 export { default as VideoCallIcon } from "@mui/icons-material/VideoCall";
+export { default as MenuIcon } from "@mui/icons-material/Menu";

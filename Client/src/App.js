@@ -31,6 +31,7 @@ function App() {
           <div className="menu">
             <SideMenu />
           </div>
+
           <div className="main">
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Routes>

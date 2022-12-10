@@ -10,6 +10,12 @@
   color: #000;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin: 2%;
+  padding-left: 2%;
+}
 .app-logo {
   height: 1.65rem;
 }
