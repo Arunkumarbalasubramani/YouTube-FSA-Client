@@ -18,12 +18,16 @@ import {
   LanguageOutlinedIcon,
   KeyboardAltOutlinedIcon,
   KeyboardArrowRightOutlinedIcon,
+  NotificationsActiveIcon,
+  VideoCallIcon,
 } from "../exports";
 import { useNavigate } from "react-router-dom";
+import { Avatar } from "@mui/material";
 
 const Navbar = ({ theme, toggleTheme }) => {
   const [showMore, setShowMore] = useState(false);
   const navigate = useNavigate();
+  const isLoggedIn = true;
   return (
     <>
       <div className="NavbarContainer">
@@ -43,6 +47,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             <MicIcon />
           </Nav.Link>
         </div>
+
         <div className="more">
           <Nav.Link
             className="more-actions"
@@ -114,13 +119,20 @@ const Navbar = ({ theme, toggleTheme }) => {
             </div>
           ) : null}
         </div>
-
-        <div className="login-btn">
-          <button className="sign-in-btn" onClick={() => navigate("/signin")}>
-            <AccountCircleOutlinedIcon />
-            Sign In
-          </button>
-        </div>
+        {isLoggedIn ? (
+          <div className="loggedInIcons">
+            <VideoCallIcon />
+            <NotificationsActiveIcon />
+            <Avatar alt="Arun Kumar" src={<AccountCircleOutlinedIcon />} />
+          </div>
+        ) : (
+          <div className="login-btn">
+            <button className="sign-in-btn" onClick={() => navigate("/signin")}>
+              <AccountCircleOutlinedIcon />
+              Sign In
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

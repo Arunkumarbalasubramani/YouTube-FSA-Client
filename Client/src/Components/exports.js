@@ -59,3 +59,5 @@ export { default as ThumbUpOutlinedIcon } from "@mui/icons-material/ThumbUpOutli
 export { default as CloseOutlinedIcon } from "@mui/icons-material/CloseOutlined";
 export { default as DeleteSweepOutlinedIcon } from "@mui/icons-material/DeleteSweepOutlined";
 export { default as GoogleIcon } from "@mui/icons-material/Google";
+export { default as NotificationsActiveIcon } from "@mui/icons-material/NotificationsActive";
+export { default as VideoCallIcon } from "@mui/icons-material/VideoCall";

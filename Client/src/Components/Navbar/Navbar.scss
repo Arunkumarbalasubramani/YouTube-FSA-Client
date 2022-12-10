@@ -36,14 +36,11 @@
   width: 85%;
 }
 .search {
-  position: relative;
   display: flex;
-  width: 50%;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  border-radius: 15px;
   width: 40%;
-  border-radius: 20px;
   border: 0.1px solid #303030;
 }
 .search-input {
@@ -55,6 +52,9 @@
 
   height: 38px;
   position: relative;
+  &:focus {
+    outline: none;
+  }
 }
 #Dark .search-input {
   background: #121212;
@@ -63,9 +63,8 @@
 
 .search-btn {
   background: transparent;
-  // color: azure;
+
   border: none;
-  border-radius: 50%;
 }
 #Dark .search-btn {
   background: #121212;
@@ -137,4 +136,12 @@
   :hover {
     background-color: #d6d3d3;
   }
+}
+
+.loggedInIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 2%;
 }
