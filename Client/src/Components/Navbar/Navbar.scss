@@ -90,7 +90,7 @@
   .search {
     width: 100%;
   }
-  .loggedInIcons > *:not(img) {
+  .loggedInIcons > *:not(div) {
     display: none;
   }
   .voice-search,
@@ -98,23 +98,19 @@
     display: none;
   }
 }
+
 .acc-thumbnail {
   border-radius: 50%;
   width: 40px;
   object-fit: contain;
   margin-left: 5px;
+  cursor: pointer;
 }
-// .more {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 25%;
-//   position: relative;
-// }
-// .more-actions {
-//   position: absolute;
-//   left: 90%;
-// }
+.logout-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
 .voice-search {
   scale: 1.1;
   :hover {
@@ -141,28 +137,7 @@
     background: #a7d5ff;
   }
 }
-.additional-options {
-  width: 73%;
-  height: 500px;
-  padding-left: 2%;
 
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  border-radius: 15px;
-  z-index: -1;
-}
-#Dark Link {
-  color: white;
-}
-#Dark .additional-options {
-  background-color: #282828;
-  color: aliceblue;
-
-  :hover {
-    background-color: #5c5b5b;
-  }
-}
 #Light .additional-options {
   border: 1px solid #bcbcbc;
   background: #fff;
@@ -177,4 +152,11 @@
   align-items: center;
   gap: 30px;
   margin: 2%;
+}
+#Light .theme-switch-icon {
+  color: black;
+}
+
+#Dark .theme-switch-icon {
+  color: white;
 }

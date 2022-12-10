@@ -163,3 +163,57 @@
   font-weight: 600;
   padding: 0.5rem 1.25rem;
 }
+.lg-sidebar {
+  display: none;
+}
+@media screen and (min-width: 1316px) {
+  .lg-sidebar {
+    display: block;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1315px) {
+  .md-menu-container {
+    width: 90px;
+  }
+  span {
+    font-size: small;
+  }
+  .menu-section {
+    justify-content: center;
+  }
+  .menu-item {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .minscreen-sidebar {
+    display: none;
+  }
+  .menu {
+    flex: 0.6;
+  }
+}
+.minscreen-sidebar {
+  display: block;
+  width: 90px;
+}
+.md-menu-section {
+  :hover {
+    background-color: #272727;
+  }
+}
+#Light .md-menu-section {
+  :hover {
+    background-color: #d6d3d3;
+  }
+}
+
+.md-menu-item {
+  margin: 10% 10% 25% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+}

@@ -63,3 +63,4 @@ export { default as NotificationsActiveIcon } from "@mui/icons-material/Notifica
 export { default as VideoCallIcon } from "@mui/icons-material/VideoCall";
 export { default as MenuIcon } from "@mui/icons-material/Menu";
 export { default as DarkModeIcon } from "@mui/icons-material/DarkMode";
+export { default as LogoutIcon } from "@mui/icons-material/Logout";

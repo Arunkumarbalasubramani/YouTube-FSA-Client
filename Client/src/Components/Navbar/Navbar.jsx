@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 import YoutubeLogo from "../../assets/youtube.png";
 import { Nav } from "react-bootstrap";
@@ -16,10 +16,13 @@ import { useNavigate } from "react-router-dom";
 import demoAvatar from "../../assets/demoAvatar.jpg";
 
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { IconButton, Tooltip } from "@mui/material";
 
 const Navbar = ({ theme, toggleTheme }) => {
   const navigate = useNavigate();
   const isLoggedIn = true;
+  const [nextTheme, setNextTheme] = useState("Dark");
+
   return (
     <>
       <div className="NavbarContainer">
@@ -48,20 +51,40 @@ const Navbar = ({ theme, toggleTheme }) => {
           </Nav.Link>
         </div>
         <div className="themeSwitch">
-          <Nav.Link onClick={() => toggleTheme()}>
-            {theme === "Dark" ? <Brightness7Icon /> : <DarkModeIcon />}
-          </Nav.Link>
+          <Tooltip title={`Switch to  ${nextTheme}`} arrow>
+            <IconButton>
+              <Nav.Link
+                onClick={() => {
+                  toggleTheme();
+                  setNextTheme(nextTheme === "Dark" ? "Light" : "Dark");
+                }}
+              >
+                {theme === "Dark" ? (
+                  <Brightness7Icon className="theme-switch-icon" />
+                ) : (
+                  <DarkModeIcon className="theme-switch-icon" />
+                )}
+              </Nav.Link>
+            </IconButton>
+          </Tooltip>
         </div>
 
         {isLoggedIn ? (
           <div className="loggedInIcons">
             <VideoCallIcon size={30} />
             <NotificationsActiveIcon size={30} />
-            <img
-              src={demoAvatar}
-              alt="account-thumnail"
-              className="acc-thumbnail"
-            />
+            <div>
+              <Tooltip title="Click to Logout" arrow>
+                <IconButton>
+                  <img
+                    src={demoAvatar}
+                    alt="account-thumnail"
+                    className="acc-thumbnail"
+                    onClick={() => {}}
+                  />
+                </IconButton>
+              </Tooltip>
+            </div>
           </div>
         ) : (
           <div className="login-btn">
