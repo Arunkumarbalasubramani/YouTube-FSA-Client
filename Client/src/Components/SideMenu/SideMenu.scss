@@ -16,17 +16,24 @@
   margin: 2%;
   padding-left: 2%;
 }
+
 .app-logo {
   height: 1.65rem;
 }
 .logo-text {
   font-weight: 600;
   font-family: Roboto, Arial, sans-serif;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 .logo-helper {
   color: #aaaaaa;
   font-size: 0.85rem;
   font-weight: 600;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .menu-container {

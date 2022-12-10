@@ -19,21 +19,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const ThemeContext = createContext(null);
 function App() {
-  const current = "Light";
-  const [theme, setTheme] = useState(current);
+  const [theme, setTheme] = useState("Light");
   const toggleTheme = () => {
     setTheme((current) => (current === "Light" ? "Dark" : "Light"));
   };
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <BrowserRouter>
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
         <div className="App" id={theme}>
           <div className="menu">
             <SideMenu />
           </div>
 
           <div className="main">
-            <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Routes>
               <Route path="/" element={<MainFeed />} />
               <Route path="/history" element={<History />} />
