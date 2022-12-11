@@ -20,16 +20,24 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 export const ThemeContext = createContext(null);
 function App() {
   const [theme, setTheme] = useState("Light");
+  const [sideBar, toggleSideBar] = useState(false);
   const toggleTheme = () => {
     setTheme((current) => (current === "Light" ? "Dark" : "Light"));
+  };
+  const showSideBar = () => {
+    toggleSideBar(!sideBar);
   };
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <BrowserRouter>
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <Navbar
+          theme={theme}
+          toggleTheme={toggleTheme}
+          showSideBar={showSideBar}
+        />
         <div className="App" id={theme}>
-          <div className="menu">
-            <SideMenu />
+          <div className={"menu"}>
+            <SideMenu sideBar={sideBar} />
           </div>
 
           <div className="main">

@@ -18,7 +18,7 @@ import demoAvatar from "../../assets/demoAvatar.jpg";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { IconButton, Tooltip } from "@mui/material";
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = ({ theme, toggleTheme, showSideBar }) => {
   const navigate = useNavigate();
   const isLoggedIn = true;
   const [nextTheme, setNextTheme] = useState("Dark");
@@ -27,7 +27,11 @@ const Navbar = ({ theme, toggleTheme }) => {
     <>
       <div className="NavbarContainer">
         <div className="logo-container">
-          <FaBars className="menu-icon" size={26} />
+          <FaBars
+            className="menu-icon"
+            size={26}
+            onClick={() => showSideBar()}
+          />
           <Nav.Link className="logo" onClick={() => navigate("/")}>
             <img src={YoutubeLogo} alt="app-logo" />
             <h5 className="logo-text">YouTube</h5>
@@ -95,14 +99,7 @@ const Navbar = ({ theme, toggleTheme }) => {
           </div>
         )}
       </div>
-    </>
-  );
-};
-
-export default Navbar;
-
-{
-  /* <div className="more">
+      {/* <div className="more">
 <Nav.Link
   className="more-actions"
   onClick={() => setShowMore(!showMore)}
@@ -173,9 +170,8 @@ export default Navbar;
     <hr className="hLine" />
   </div>
 ) : null}
-</div> */
-}
-
+</div> */}
+      {/* 
 // MoreVertOutlinedIcon,
 // SettingsOutlinedIcon,
 // HelpOutlineOutlinedIcon,
@@ -186,4 +182,9 @@ export default Navbar;
 // PolicyOutlinedIcon,
 // LanguageOutlinedIcon,
 // KeyboardAltOutlinedIcon,
-// KeyboardArrowRightOutlinedIcon,
+// KeyboardArrowRightOutlinedIcon, */}
+    </>
+  );
+};
+
+export default Navbar;

@@ -171,9 +171,9 @@
     display: block;
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1315px) {
+@media screen and (min-width: 521px) and (max-width: 1315px) {
   .md-menu-container {
-    width: 90px;
+    width: 100px;
   }
   span {
     font-size: small;
@@ -186,16 +186,13 @@
     justify-content: center;
   }
   .minscreen-sidebar {
-    display: none;
+    display: block;
   }
   .menu {
-    flex: 0.6;
+    flex: 0.7;
   }
 }
-.minscreen-sidebar {
-  display: block;
-  width: 90px;
-}
+
 .md-menu-section {
   :hover {
     background-color: #272727;
@@ -216,4 +213,26 @@
   width: 80px;
   height: 80px;
   border-radius: 15px;
+  padding: 5%;
+}
+
+@media screen and (max-width: 520px) {
+  .minscreen-sidebar {
+    transform: translateX(-200%);
+    position: fixed;
+    z-index: 999;
+    &.open {
+      position: static;
+    }
+  }
+}
+
+.minscreen-sidebar {
+  transition: transform 300ms ease-in-out;
+  &.open {
+    transform: translateX(0%);
+    .md-menu-container {
+      height: 100vh;
+    }
+  }
 }
