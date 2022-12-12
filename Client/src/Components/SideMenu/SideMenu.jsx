@@ -32,7 +32,7 @@ import {
 } from "../exports";
 import { useNavigate } from "react-router-dom";
 
-const SideMenu = ({ sideBar }) => {
+const SideMenu = ({ sideBar, showSideBar }) => {
   const navigate = useNavigate();
 
   return (
@@ -197,6 +197,7 @@ const SideMenu = ({ sideBar }) => {
 
       <div
         className={sideBar ? "minscreen-sidebar open" : "minscreen-sidebar "}
+        onClick={() => showSideBar(false)}
       >
         <div className="md-menu-container">
           <div className="md-menu-section">

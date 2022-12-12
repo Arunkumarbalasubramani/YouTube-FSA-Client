@@ -37,7 +37,7 @@ function App() {
         />
         <div className="App" id={theme}>
           <div className={"menu"}>
-            <SideMenu sideBar={sideBar} />
+            <SideMenu sideBar={sideBar} showSideBar={showSideBar} />
           </div>
 
           <div className="main">

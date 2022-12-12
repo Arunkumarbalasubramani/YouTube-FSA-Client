@@ -1,9 +1,14 @@
 .mainfeed-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+
+  flex-direction: column;
   padding: 2% 4%;
   cursor: pointer;
+}
+.video-comp {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 2rem 1rem 2rem;
 }
 #Dark .mainfeed-container {
   background: #0f0f0f;
@@ -16,16 +21,25 @@
 }
 .videocard-container {
   width: 360px;
-  // height: 290px;
-  // background-color: red;
+
   margin-bottom: 2.2rem;
   border-radius: 18px;
   padding: 1%;
   cursor: pointer;
-  // :hover {
-  //   scale: 1.25;
-  //   transition-duration: 300ms;
-  // }
+}
+.video-top {
+  position: relative;
+  span {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.3rem;
+    padding: 0.2rem;
+    background: #313131;
+    color: white;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
 .video-thumbnail {
   width: 100%;
@@ -87,36 +101,47 @@
 #Light .channel-name {
   color: #4f4d4d;
 }
-.addto {
-  width: 60%;
-  height: 80px;
 
-  border-radius: 15px;
-  position: absolute;
-  left: 88%;
-}
-
-#Dark .addto {
-  background: #282828;
-  :hover {
-    background-color: rgb(75, 75, 75);
-  }
-}
-
-#Light .addto {
-  background: #ffffff;
-  border: 1px solid gray;
-  :hover {
-    background-color: rgb(203, 203, 203);
-  }
-}
-.addon-item {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-  padding: 10px 0px 0px 15px;
-}
 #Dark .main {
   background: black;
   color: #f8f8f8;
+}
+.categories-container {
+  display: flex;
+  gap: 20px;
+
+  padding: 0.5rem 0;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  scrollbar-width: none;
+}
+.category-item {
+  background: transparent;
+  border: none;
+  height: 35px;
+  width: auto;
+  border-radius: 8px;
+  padding: 0% 2%;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+#Light .category-item {
+  color: #0f0f0f;
+  background: #d3d1d1;
+  &.active {
+    color: white;
+    background: #0f0f0f;
+  }
+}
+
+#Dark .category-item {
+  color: white;
+  background: #272727;
+  &.active {
+    color: #0f0f0f;
+    background: white;
+  }
 }
