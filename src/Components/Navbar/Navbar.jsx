@@ -28,7 +28,7 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
         <div className="logo-container">
           <FaBars
             className="menu-icon"
-            size={28}
+            size={26}
             onClick={() => showSideBar()}
           />
           <div className="logo" onClick={() => navigate("/")}>
