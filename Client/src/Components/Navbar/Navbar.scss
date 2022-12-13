@@ -77,6 +77,7 @@
 .themeSwitch {
   display: block;
 }
+
 @media screen and (max-width: 520px) {
   .menu-icon {
     display: block;
@@ -91,10 +92,6 @@
     width: 100%;
   }
   .loggedInIcons > *:not(div) {
-    display: none;
-  }
-  .voice-search,
-  .more-actions {
     display: none;
   }
 }

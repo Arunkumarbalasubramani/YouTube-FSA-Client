@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MainFeed.scss";
+
 import thumbnail from "../../assets/demoThumbnail.PNG";
 
 import { Nav } from "react-bootstrap";

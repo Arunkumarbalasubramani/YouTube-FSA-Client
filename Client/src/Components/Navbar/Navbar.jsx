@@ -6,7 +6,6 @@ import { Nav } from "react-bootstrap";
 import {
   AccountCircleOutlinedIcon,
   SearchOutlinedIcon,
-  MicIcon,
   NotificationsActiveIcon,
   VideoCallIcon,
   DarkModeIcon,
@@ -32,11 +31,11 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
             size={26}
             onClick={() => showSideBar()}
           />
-          <Nav.Link className="logo" onClick={() => navigate("/")}>
+          <div className="logo" onClick={() => navigate("/")}>
             <img src={YoutubeLogo} alt="app-logo" />
             <h5 className="logo-text">YouTube</h5>
             <p className="logo-helper">IN</p>
-          </Nav.Link>
+          </div>
         </div>
         <div className="search-container">
           <div className="search">
@@ -50,9 +49,6 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
               <SearchOutlinedIcon />
             </button>
           </div>
-          <Nav.Link className="voice-search">
-            <MicIcon />
-          </Nav.Link>
         </div>
         <div className="themeSwitch">
           <Tooltip title={`Switch to  ${nextTheme}`} arrow>
@@ -109,7 +105,7 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
 
 {showMore ? (
   <div className="additional-options">
-    <Nav.Link className="menu-item">
+    <div className="menu-item">
       <SafetyCheckIcon />
       <span className="menu-text">Your Data in Youtube</span>
     </Nav.Link>

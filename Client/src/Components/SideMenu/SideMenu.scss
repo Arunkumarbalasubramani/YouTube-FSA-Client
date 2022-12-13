@@ -12,9 +12,11 @@
 
 .logo-container {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: 2%;
   padding-left: 2%;
+  cursor: pointer;
 }
 
 .app-logo {
@@ -103,7 +105,6 @@
 .sub-head {
   font-size: large;
   padding: 0rem 1rem;
-  // background: #0f0f0f;
 }
 
 .more-item {
@@ -166,9 +167,13 @@
 .lg-sidebar {
   display: none;
 }
+
 @media screen and (min-width: 1316px) {
   .lg-sidebar {
     display: block;
+  }
+  .minscreen-sidebar {
+    display: none;
   }
 }
 @media screen and (min-width: 521px) and (max-width: 1315px) {
@@ -189,7 +194,7 @@
     display: block;
   }
   .menu {
-    flex: 0.7;
+    flex: 0.8;
   }
 }
 
