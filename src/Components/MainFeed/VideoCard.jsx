@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./MainFeed.scss";
-import thumbnail from "../../assets/demoThumbnail.PNG";
 import { Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import moment from "moment/moment";
@@ -17,11 +16,11 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
       title,
       channelId,
       channelTitle,
-      description,
+
       publishedAt,
       thumbnails: { maxres },
     },
-    statistics: { viewCount, likeCount },
+    statistics: { viewCount },
   } = video;
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
