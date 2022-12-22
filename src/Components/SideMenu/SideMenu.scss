@@ -166,6 +166,9 @@
 }
 .lg-sidebar {
   display: none;
+  width: 220px;
+
+  overflow-y: visible;
 }
 
 @media screen and (min-width: 1316px) {

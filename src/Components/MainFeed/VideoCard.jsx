@@ -1,27 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MainFeed.scss";
-
 import thumbnail from "../../assets/demoThumbnail.PNG";
-
 import { Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-const VideoCard = ({ thumbnailStyle, videocardStyle }) => {
+import moment from "moment/moment";
+import numeral from "numeral";
+import { fetchFromAPI } from "../actions";
+
+const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
   const navigate = useNavigate();
+  const [channelDetails, setchannelDetails] = useState([]);
+  const {
+    id,
+    contentDetails: { duration },
+    snippet: {
+      title,
+      channelId,
+      channelTitle,
+      description,
+      publishedAt,
+      thumbnails: { maxres },
+    },
+    statistics: { viewCount, likeCount },
+  } = video;
+  const seconds = moment.duration(duration).asSeconds();
+  const _duration = moment.utc(seconds * 1000).format("mm:ss");
+
+  useEffect(() => {
+    try {
+      fetchFromAPI(
+        `channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+      `
+      ).then((data) => setchannelDetails(data.items[0]));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [channelId]);
+  console.log(channelDetails);
+
+  if (!channelDetails?.snippet) return "Loading ....";
+  const {
+    snippet: {
+      thumbnails: {
+        high: { url },
+      },
+    },
+  } = channelDetails;
   return (
     <div className={!videocardStyle ? "videocard-container" : videocardStyle}>
       <div className="video-top">
         <img
-          src={thumbnail}
+          src={maxres.url}
           alt="video-thumbnail"
           className={!thumbnailStyle ? "video-thumbnail" : thumbnailStyle}
-          onClick={() => navigate("/video/test")}
+          onClick={() => navigate(`/video/${id}`)}
         />
-        <span>05:23</span>
+        <span>{_duration}</span>
       </div>
       <div className="channel-details">
         {!thumbnailStyle ? (
           <img
-            src={thumbnail}
+            src={url}
             alt="channel-thumbnail"
             className="channel-thumbnail"
             onClick={() => navigate("/channel/:channelId")}
@@ -33,18 +72,19 @@ const VideoCard = ({ thumbnailStyle, videocardStyle }) => {
               className="video-title"
               onClick={() => navigate("/video/test")}
             >
-              {" "}
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              {title}
             </Nav.Link>
           </div>
 
           <Nav.Link onClick={() => navigate("/channel/:channelId")}>
-            <p className="channel-name">Lorem ipsum dolor sit amet.</p>
+            <p className="channel-name">{channelTitle}</p>
           </Nav.Link>
           <div className="views">
-            <p className="viewcount">123K Views • </p>
+            <p className="viewcount">
+              {numeral(viewCount).format("0.a").toUpperCase()} Views •{" "}
+            </p>
 
-            <p className="uploaded-time"> 3 Weeks Ago</p>
+            <p className="uploaded-time"> {moment(publishedAt).fromNow()}</p>
           </div>
         </div>
       </div>

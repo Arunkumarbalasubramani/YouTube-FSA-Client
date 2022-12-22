@@ -27,8 +27,9 @@ function App() {
   const showSideBar = () => {
     toggleSideBar(!sideBar);
   };
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, URL }}>
       <BrowserRouter>
         <Navbar
           theme={theme}
@@ -36,21 +37,25 @@ function App() {
           showSideBar={showSideBar}
         />
         <div className="App" id={theme}>
-          <div className={"menu"}>
+          <div className={sideBar ? "menu open" : "menu "}>
             <SideMenu sideBar={sideBar} showSideBar={showSideBar} />
           </div>
 
           <div className="main">
             <Routes>
-              <Route path="/" element={<MainFeed />} />
+              <Route path="/" element={<MainFeed URL={URL} />} />
               <Route path="/history" element={<History />} />
               <Route path="/library" element={<Library />} />
               <Route path="/watchlater" element={<WatchLater />} />
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/video/:videoId" element={<VideosPage />} />
-              <Route path="/channel/:channelId" element={<ChannelPage />} />
+              <Route
+                path="/channel/:channelId"
+                element={<ChannelPage URL={URL} />}
+              />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="*" element={<MainFeed />} />
             </Routes>
           </div>
         </div>

@@ -4,7 +4,7 @@ import testCoverPic from "../../assets/testCover.png";
 import ChannelInfo from "../Videos/ChannelInfo";
 
 import VideoCard from "../MainFeed/VideoCard";
-const ChannelPage = () => {
+const ChannelPage = ({ URL }) => {
   const logoStyle = "channel-page";
   const thumbnailStyle = "channel-video-thumbnail";
   const videocardStyle = "channel-videoCard";

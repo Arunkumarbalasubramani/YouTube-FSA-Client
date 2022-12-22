@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Nav } from "react-bootstrap";
 import ReactPlayer from "react-player";
 
@@ -13,14 +13,41 @@ import {
 
 import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
+import { fetchFromAPI } from "../actions";
 
 const VideosPage = () => {
+  const [popularVideos, setPopularVideos] = useState([]);
+
+  useEffect(() => {
+    try {
+      fetchFromAPI(
+        `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+      `
+      ).then((data) => setPopularVideos(data.items));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  const {
+    id,
+    contentDetails: { duration },
+    snippet: {
+      title,
+      channelId,
+      channelTitle,
+      description,
+      publishedAt,
+      thumbnails: { maxres },
+    },
+    statistics: { viewCount, likeCount },
+  } = popularVideos;
+  const videoUrl = `https://youtu.be/${id}`;
   return (
     <div className="video-container">
       <div className="video-wrapper">
         <div className="video-playback">
           <ReactPlayer
-            url="https://youtu.be/zuVV9Y55gvc"
+            url="https://youtu.be/RbQgF_vocLU"
             className="video-Playback"
             width="1262px"
             height="715px"
