@@ -14,6 +14,7 @@ const MainFeed = () => {
           `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
       `
         );
+
         setVideoDetail(data.items);
       } catch (error) {
         console.log(error);

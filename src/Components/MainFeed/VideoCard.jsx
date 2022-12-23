@@ -6,71 +6,63 @@ import moment from "moment/moment";
 import numeral from "numeral";
 import { fetchFromAPI } from "../actions";
 import axios from "axios";
+import thumbnail from "../../assets/demoThumbnail.PNG";
 
 const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
   const navigate = useNavigate();
-  const [channelDetails, setchannelDetails] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [channelIcon, setChannelIcon] = useState([]);
+
   const {
-    id,
     contentDetails: { duration },
     snippet: {
-      title,
+      publishedAt,
       channelId,
       channelTitle,
-
-      publishedAt,
-      thumbnails: { maxres },
+      title,
+      thumbnails: { standard },
     },
     statistics: { viewCount },
   } = video;
 
   useEffect(() => {
-    try {
-      axios
-        .get(
-          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+    const get_channel_details = async () => {
+      try {
+        const data = await fetchFromAPI(
+          `channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
       `
-        )
-        .then((data) => setchannelDetails(data.items[0]));
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [channelId]);
+        );
+        setChannelIcon(data.items[0].snippet.thumbnails.default.url);
+        // setChannelData(data.items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    get_channel_details();
+  }, []);
 
-  // const {
-  //   snippet: {
-  //     thumbnails: {
-  //       high: { url },
-  //     },
-  //   },
-  // } = channelDetails;
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
-
-  if (isLoading) return "Loading ....";
 
   return (
     <div className={!videocardStyle ? "videocard-container" : videocardStyle}>
       <div className="video-top">
         <img
-          src={maxres.url}
+          src={standard.url}
           alt="video-thumbnail"
           className={!thumbnailStyle ? "video-thumbnail" : thumbnailStyle}
-          onClick={() => navigate(`/video/${id}`)}
+          onClick={() => navigate(`/video/test`)}
         />
         <span>{_duration}</span>
       </div>
       <div className="channel-details">
-        {/* {!thumbnailStyle ? (
+        {!thumbnailStyle ? (
           <img
-            src={url}
+            src={channelIcon}
             alt="channel-thumbnail"
             className="channel-thumbnail"
             onClick={() => navigate("/channel/:channelId")}
           />
-        ) : null} */}
+        ) : null}
         <div className="video-details">
           <div className="videos">
             <Nav.Link
@@ -86,6 +78,7 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
           </Nav.Link>
           <div className="views">
             <p className="viewcount">
+              {" "}
               {numeral(viewCount).format("0.a").toUpperCase()} Views •{" "}
             </p>
 

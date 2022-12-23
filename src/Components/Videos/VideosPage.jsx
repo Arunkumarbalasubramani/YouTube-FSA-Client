@@ -18,25 +18,24 @@ import { useParams } from "react-router-dom";
 
 const VideosPage = () => {
   const { videoId } = useParams();
-  console.log(videoId);
-  // useEffect(() => {
-  //   try {
-  //     fetchFromAPI(
-  //       `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoID}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
-  //     `
-  //     ).then((data) => setPopularVideos(data.items));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
-  // console.log(popularVideos);
-
+  const [videoDetail, setVideoDetail] = useState("");
+  useEffect(() => {
+    try {
+      fetchFromAPI(
+        `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+      `
+      ).then((data) => setVideoDetail(data.items));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [videoId]);
+  console.log(videoDetail);
   return (
     <div className="video-container">
       <div className="video-wrapper">
         <div className="video-playback">
           <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${videoId}`}
+            url={`https://www.youtube.com/watch?v=tjjZoZGhsno`}
             className="video-Playback"
             width="1262px"
             height="715px"
