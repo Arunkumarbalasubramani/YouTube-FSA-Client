@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
-
 import { fetchFromAPI } from "../actions";
-
 import CategoriesBar from "./CategoriesBar";
 import "./MainFeed.scss";
 import VideoCard from "./VideoCard";
+
 const MainFeed = () => {
-  const [popularVideos, setPopularVideos] = useState([]);
+  const [videoDetail, setVideoDetail] = useState([]);
 
   useEffect(() => {
-    try {
-      fetchFromAPI(
-        `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+    const get_video_details = async () => {
+      try {
+        const data = await fetchFromAPI(
+          `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
       `
-      ).then((data) => setPopularVideos(data.items));
-    } catch (error) {
-      console.log(error);
-    }
+        );
+        setVideoDetail(data.items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    get_video_details();
   }, []);
-  console.log(popularVideos);
 
   return (
     <div className="mainfeed-container">
@@ -26,11 +28,13 @@ const MainFeed = () => {
         <CategoriesBar />
       </div>
       <div className="video-comp">
-        {!popularVideos
-          ? "Loading ...."
-          : popularVideos.map((item, index) => (
-              <VideoCard key={index} video={item} />
-            ))}
+        {videoDetail.length === 0 ? (
+          <p>Loading...</p>
+        ) : (
+          videoDetail.map((item, index) => (
+            <VideoCard key={index} video={item} />
+          ))
+        )}
       </div>
     </div>
   );

@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment/moment";
 import numeral from "numeral";
 import { fetchFromAPI } from "../actions";
+import axios from "axios";
 
 const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
   const navigate = useNavigate();
   const [channelDetails, setchannelDetails] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const {
     id,
     contentDetails: { duration },
@@ -22,29 +24,33 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
     },
     statistics: { viewCount },
   } = video;
-  const seconds = moment.duration(duration).asSeconds();
-  const _duration = moment.utc(seconds * 1000).format("mm:ss");
 
   useEffect(() => {
     try {
-      fetchFromAPI(
-        `channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+      axios
+        .get(
+          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
       `
-      ).then((data) => setchannelDetails(data.items[0]));
+        )
+        .then((data) => setchannelDetails(data.items[0]));
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
   }, [channelId]);
-  console.log(channelDetails);
 
-  if (!channelDetails?.snippet) return "Loading ....";
-  const {
-    snippet: {
-      thumbnails: {
-        high: { url },
-      },
-    },
-  } = channelDetails;
+  // const {
+  //   snippet: {
+  //     thumbnails: {
+  //       high: { url },
+  //     },
+  //   },
+  // } = channelDetails;
+  const seconds = moment.duration(duration).asSeconds();
+  const _duration = moment.utc(seconds * 1000).format("mm:ss");
+
+  if (isLoading) return "Loading ....";
+
   return (
     <div className={!videocardStyle ? "videocard-container" : videocardStyle}>
       <div className="video-top">
@@ -57,14 +63,14 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
         <span>{_duration}</span>
       </div>
       <div className="channel-details">
-        {!thumbnailStyle ? (
+        {/* {!thumbnailStyle ? (
           <img
             src={url}
             alt="channel-thumbnail"
             className="channel-thumbnail"
             onClick={() => navigate("/channel/:channelId")}
           />
-        ) : null}
+        ) : null} */}
         <div className="video-details">
           <div className="videos">
             <Nav.Link
