@@ -13,6 +13,7 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
   const [channelIcon, setChannelIcon] = useState([]);
 
   const {
+    id,
     contentDetails: { duration },
     snippet: {
       publishedAt,
@@ -50,7 +51,7 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
           src={standard.url}
           alt="video-thumbnail"
           className={!thumbnailStyle ? "video-thumbnail" : thumbnailStyle}
-          onClick={() => navigate(`/video/test`)}
+          onClick={() => navigate(`/video/${id}`)}
         />
         <span>{_duration}</span>
       </div>
@@ -67,7 +68,7 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
           <div className="videos">
             <Nav.Link
               className="video-title"
-              onClick={() => navigate("/video/test")}
+              onClick={() => navigate(`/video/${id}`)}
             >
               {title}
             </Nav.Link>

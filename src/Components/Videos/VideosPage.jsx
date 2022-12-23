@@ -15,6 +15,7 @@ import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
 import { fetchFromAPI } from "../actions";
 import { useParams } from "react-router-dom";
+import YouTube from "react-youtube";
 
 const VideosPage = () => {
   const { videoId } = useParams();
@@ -30,17 +31,26 @@ const VideosPage = () => {
     }
   }, [videoId]);
   console.log(videoDetail);
+  const opts = {
+    height: "715",
+    width: "1262",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
   return (
     <div className="video-container">
       <div className="video-wrapper">
         <div className="video-playback">
-          <ReactPlayer
-            url={`https://www.youtube.com/watch?v=tjjZoZGhsno`}
+          {/* <ReactPlayer
+            url={`https://www.youtube.com/watch?v=${videoId}`}
             className="video-Playback"
             width="1262px"
             height="715px"
             controls
-          />
+          /> */}
+          <YouTube videoId={videoId} opts={opts} />;
         </div>
         <h1 className="title">Test Video</h1>
         <div className="details">
