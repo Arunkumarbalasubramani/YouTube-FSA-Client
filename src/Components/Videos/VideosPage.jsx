@@ -13,141 +13,144 @@ import {
 
 import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
-import { fetchFromAPI } from "../actions";
+import { fetchFromAPI, getVideoDetails } from "../actions";
 import { useParams } from "react-router-dom";
-import YouTube from "react-youtube";
+import moment from "moment";
+import axios from "axios";
 
 const VideosPage = () => {
   const { videoId } = useParams();
-  const [videoDetail, setVideoDetail] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [videoDetail, setvideoDetail] = useState([]);
   useEffect(() => {
-    try {
-      fetchFromAPI(
-        `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
-      `
-      ).then((data) => setVideoDetail(data.items));
-    } catch (error) {
-      console.log(error);
-    }
+    const get_video_details = async () => {
+      try {
+        const videoDetail = await getVideoDetails(videoId);
+        setvideoDetail(videoDetail.items[0]);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    get_video_details();
   }, [videoId]);
-  console.log(videoDetail);
-  const opts = {
-    height: "715",
-    width: "1262",
-    playerVars: {
-      autoplay: 1,
-    },
-  };
 
-  return (
-    <div className="video-container">
-      <div className="video-wrapper">
-        <div className="video-playback">
-          {/* <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${videoId}`}
-            className="video-Playback"
-            width="1262px"
-            height="715px"
-            controls
-          /> */}
-          <YouTube videoId={videoId} opts={opts} />;
-        </div>
-        <h1 className="title">Test Video</h1>
-        <div className="details">
-          <div className="channel-section">
-            <ChannelInfo />
-            <div className="buttons">
-              <button className="action-btn1">
-                <div className="like-btn">
-                  <span>
-                    <BiLike size={20} />
-                  </span>
-                  Like
-                </div>
-                <button className="dislike-btn">
-                  <BiDislike size={20} />
+  if (loading) {
+    return <p>Loading...</p>;
+  } else {
+    const {
+      snippet: { publishedAt, channelId, channelTitle, description, title },
+      statistics: { commentCount, viewCount },
+    } = videoDetail;
+    return (
+      <div className="video-container">
+        <div className="video-wrapper">
+          <div className="video-playback">
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${videoId}`}
+              className="video-Playback"
+              width="1262px"
+              height="715px"
+              controls
+              autoPlay
+              pip="true"
+            />
+          </div>
+          <h1 className="title">{title}</h1>
+          <div className="details">
+            <div className="channel-section">
+              <ChannelInfo channelID={channelId} channelTitle={channelTitle} />
+              <div className="buttons">
+                <button className="action-btn1">
+                  <div className="like-btn">
+                    <span>
+                      <BiLike size={20} />
+                    </span>
+                    Likes
+                  </div>
+                  <button className="dislike-btn">
+                    <BiDislike size={20} />
+                  </button>
                 </button>
-              </button>
-              <button className="action-btn">
-                <span>
-                  <RiShareForwardLine size={20} />
-                </span>
-                Share
-              </button>
-              <button className="action-btn">
-                <span>
-                  <PlaylistAddOutlinedIcon />
-                </span>
-                Save
-              </button>
-              <button className="action-btn2">
-                <MoreHorizOutlinedIcon size={20} />
-              </button>
+                <button className="action-btn">
+                  <span>
+                    <RiShareForwardLine size={20} />
+                  </span>
+                  Share
+                </button>
+                <button className="action-btn">
+                  <span>
+                    <PlaylistAddOutlinedIcon />
+                  </span>
+                  Save
+                </button>
+                <button className="action-btn2">
+                  <MoreHorizOutlinedIcon size={20} />
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="description">
-            <div className="views-info">7,948,154 views • Jun 22, 2022</div>
-            <div className="description-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-              voluptate optio officiis at corrupti molestiae, recusandae
-              excepturi in libero voluptates fuga tempore laboriosam dolor magni
-              possimus esse distinctio labore veritatis? Voluptas, ad earum
-              dolorem temporibus facilis culpa eius optio suscipit mollitia
-              inventore, excepturi nulla fugiat quisquam atque iste aliquid
-              quod!
+            <div className="description">
+              <div className="views-info">
+                {parseInt(viewCount).toLocaleString()} Views •{" "}
+                {moment(publishedAt).startOf("hour").fromNow()}
+              </div>
+              <div className="description-text">{description}</div>
             </div>
-          </div>
-          <div className="comments-section">
-            <div className="comments-number">
-              <h6>1056 Comments</h6>
-              <Nav.Link>
-                <span>
-                  <SortOutlinedIcon /> SortBy
-                </span>
-              </Nav.Link>
-            </div>
-            <div className="add-comments">
-              <img src="" className="account-image" alt="account-avatar" />
-              <input
-                type="text"
-                name="add-comments"
-                id="add-comments"
-                placeholder="Add Comment"
-                className="comment-input"
-              />
-            </div>
-            <div className="comment-btn">
-              <Button>Comment</Button>
-            </div>
-            <div className="previous-comments">
-              <img src="" className="account-image" alt="account-avatar" />
-              <div className="comments">
-                <div className="userName">
-                  @arunKur <span> 5 Days ago</span>
-                </div>
-                <div className="comment-content">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                  minus saepe nihil repellendus, accusantium quaerat sed eius
-                  odit numquam consequuntur. Quae voluptatibus eligendi ut
-                  dignissimos!
-                </div>
-                <div className="comment-actions">
-                  <BiLike size={22} /> <BiDislike size={22} />
+            <div className="comments-section">
+              <div className="comments-number">
+                <h6>
+                  {parseInt(commentCount).toLocaleString()} Comments Originally
+                  from Youtube
+                </h6>
+                <Nav.Link>
+                  <span>
+                    <SortOutlinedIcon /> SortBy
+                  </span>
+                </Nav.Link>
+              </div>
+              <div className="add-comments">
+                <img src="" className="account-image" alt="account-avatar" />
+                <input
+                  type="text"
+                  name="add-comments"
+                  id="add-comments"
+                  placeholder="Add Comment"
+                  className="comment-input"
+                />
+              </div>
+              <div className="comment-btn">
+                <Button>Comment</Button>
+              </div>
+              <div className="previous-comments">
+                <img src="" className="account-image" alt="account-avatar" />
+                <div className="comments">
+                  <div className="userName">
+                    @arunKur <span> 5 Days ago</span>
+                  </div>
+                  <div className="comment-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolor minus saepe nihil repellendus, accusantium quaerat sed
+                    eius odit numquam consequuntur. Quae voluptatibus eligendi
+                    ut dignissimos!
+                  </div>
+                  <div className="comment-actions">
+                    <BiLike size={22} /> <BiDislike size={22} />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="recomendation-section">
+          <SmallvideoCard />
+          <SmallvideoCard />
+          <SmallvideoCard />
+          <SmallvideoCard />
+          <SmallvideoCard />
+        </div>
       </div>
-      <div className="recomendation-section">
-        <SmallvideoCard />
-        <SmallvideoCard />
-        <SmallvideoCard />
-        <SmallvideoCard />
-        <SmallvideoCard />
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default VideosPage;

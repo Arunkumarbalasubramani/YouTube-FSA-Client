@@ -1,30 +1,65 @@
-import React from "react";
+import numeral from "numeral";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getChannelIcon } from "../actions";
 
-const ChannelInfo = ({ logoStyle }) => {
+const ChannelInfo = ({ logoStyle, channelID }) => {
   const navigate = useNavigate();
-  return (
-    <div className="channel-info">
-      <div className="channelTitle">
-        <img
-          src=""
-          alt="channel-thumbnail"
-          className={!logoStyle ? "channel-logo" : logoStyle}
-          onClick={() => navigate("/channel/test")}
-        />
-        <div className="channel">
-          <div
-            className="channel-title"
-            onClick={() => navigate("/channel/test")}
-          >
-            Sony South India
+  const [loading, setLoading] = useState(true);
+  const [channeldetails, setChanneldetails] = useState([]);
+
+  useEffect(() => {
+    const get_channel_details = async () => {
+      try {
+        const data = await getChannelIcon(channelID);
+        console.log(data);
+        setChanneldetails(data.items[0]);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    get_channel_details();
+  }, [channelID]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  } else {
+    const {
+      id,
+      snippet: {
+        title,
+        thumbnails: {
+          default: { url },
+        },
+      },
+      statistics: { subscriberCount },
+    } = channeldetails;
+    return (
+      <div className="channel-info">
+        <div className="channelTitle">
+          <img
+            src={url}
+            alt="channel-thumbnail"
+            className={!logoStyle ? "channel-logo" : logoStyle}
+            onClick={() => navigate(`/channel/${id}`)}
+          />
+          <div className="channel">
+            <div
+              className="channel-title"
+              onClick={() => navigate(`/channel/${id}`)}
+            >
+              {title}
+            </div>
+            <div className="channel-subscribers">
+              {numeral(subscriberCount).format("0.a").toUpperCase()}
+              <span className="sub-text2">Subscribers</span>
+            </div>
           </div>
-          <div className="channel-subscribers">13.4M Subscribers</div>
         </div>
+        <button className="subscribe-btn">Subscribe</button>
       </div>
-      <button className="subscribe-btn">Subscribe</button>
-      <div className="user-library"></div>
-    </div>
-  );
+    );
+  }
 };
 export default ChannelInfo;

@@ -7,6 +7,7 @@ export { default as Subscriptions } from "./Subscriptions/Subscriptions";
 export { default as VideosPage } from "./Videos/VideosPage";
 export { default as WatchLater } from "./History/WatchLater";
 export { default as MainFeed } from "./MainFeed/MainFeed";
+export { default as CategoryVideos } from "./MainFeed/CategoryVideos";
 export { default as ChannelPage } from "./ChannelPage/ChannelPage";
 export { default as SignIn } from "./SignIn";
 export { default as SignUp } from "./SignUp";

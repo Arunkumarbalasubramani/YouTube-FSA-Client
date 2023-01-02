@@ -12,6 +12,7 @@ import {
   WatchLater,
   SignIn,
   SignUp,
+  CategoryVideos,
 } from "./Components/exports";
 
 import { createContext, useState } from "react";
@@ -49,10 +50,8 @@ function App() {
               <Route path="/watchlater" element={<WatchLater />} />
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/video/:videoId" element={<VideosPage />} />
-              <Route
-                path="/channel/:channelId"
-                element={<ChannelPage URL={URL} />}
-              />
+              <Route path="/search/:category" element={<CategoryVideos />} />
+              <Route path="/channel/:channelId" element={<ChannelPage />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="*" element={<MainFeed />} />

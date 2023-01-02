@@ -1,24 +1,29 @@
 import React, { useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
 import "./MainFeed.scss";
 
 const keyWords = [
-  "All",
+  "New",
   "React JS",
-  "Angular",
-  "API",
   "Tamil Songs",
+  "API",
   "React Native",
   "MERN",
   "Coding",
-  "Music",
-  "Movies",
+  "Motivation",
+  "Self-Improvement",
   "Motorcycles",
-  "New to You",
+  "Yezdi Adventure",
   "Gadgets",
   "Stock Market",
 ];
-const CategoriesBar = () => {
+const CategoriesBar = ({ selectedcategory }) => {
+  const navigate = useNavigate();
+
   const [activeElement, setActiveElement] = useState("All");
+
   return (
     <div className="categories-container">
       {keyWords.map((element, index) => (
@@ -29,7 +34,11 @@ const CategoriesBar = () => {
               ? " category-item active"
               : "category-item"
           }
-          onClick={() => setActiveElement(element)}
+          onClick={() => {
+            setActiveElement(element);
+            selectedcategory(element);
+            navigate(`/search/${element}`);
+          }}
         >
           {element}
         </button>

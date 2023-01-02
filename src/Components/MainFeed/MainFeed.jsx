@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { fetchFromAPI } from "../actions";
+import { getAllVideos } from "../actions";
 import CategoriesBar from "./CategoriesBar";
+import CategoryVideos from "./CategoryVideos";
 import "./MainFeed.scss";
 import VideoCard from "./VideoCard";
+import Skeleton from "react-loading-skeleton";
 
 const MainFeed = () => {
   const [videoDetail, setVideoDetail] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [category, setcategory] = useState(null);
+  const [categoryVideos, setcategoryVideos] = useState(null);
+  const selectedCategory = (data) => {
+    setcategory(data);
+  };
 
   useEffect(() => {
     const get_video_details = async () => {
       try {
-        const data = await fetchFromAPI(
-          `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
-      `
-        );
-
+        const data = await getAllVideos();
         setVideoDetail(data.items);
+
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -23,19 +29,26 @@ const MainFeed = () => {
     get_video_details();
   }, []);
 
+  if (loading) {
+    return <Skeleton />;
+  }
+
   return (
     <div className="mainfeed-container">
       <div>
-        <CategoriesBar />
+        <CategoriesBar selectedcategory={selectedCategory} />
       </div>
       <div className="video-comp">
-        {videoDetail.length === 0 ? (
-          <p>Loading...</p>
-        ) : (
+        {/* {videoDetail && !category ? (
           videoDetail.map((item, index) => (
             <VideoCard key={index} video={item} />
           ))
-        )}
+        ) : (
+          <CategoryVideos />
+        )} */}
+        {videoDetail.map((video, index) => (
+          <VideoCard key={index} video={video} />
+        ))}
       </div>
     </div>
   );
