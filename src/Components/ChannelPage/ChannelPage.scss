@@ -6,13 +6,25 @@
 
 .channel-videos {
   margin: 1%;
-  padding: 0rem 10rem;
+  padding: 0rem 4rem;
+  @media screen and (max-width: 510px) {
+    padding: 0rem 1rem;
+  }
+  @media screen and (min-width: 511px) and (max-width: 768px) {
+    padding: 0 3rem;
+  }
 }
 
 .video-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.75rem;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 511px) and (max-width: 1454px) {
+  }
 }
 .channel-video-thumbnail {
   width: 303px;
@@ -20,5 +32,6 @@
   border-radius: 12px;
 }
 .channel-videoCard {
-  width: 303px;
+  width: min-content;
+  // flex: 0.8 1 auto;
 }

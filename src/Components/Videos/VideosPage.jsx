@@ -13,10 +13,9 @@ import {
 
 import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
-import { fetchFromAPI, getVideoDetails } from "../actions";
+import { getVideoDetails } from "../actions";
 import { useParams } from "react-router-dom";
 import moment from "moment";
-import axios from "axios";
 
 const VideosPage = () => {
   const { videoId } = useParams();

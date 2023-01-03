@@ -31,13 +31,17 @@ export const getVideosByCategory = async (category) => {
 };
 
 export const getChannelById = async (channelId) => {
-  // const { data } = axios.get(
-  //   `${BASE_URL}/channelSections?part=snippet%2CcontentDetails&channelId=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
-  //   `
   const { data } =
     await axios.get(`${BASE_URL}/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
    `);
-  // );
 
+  return data;
+};
+
+export const getChannelSection = async (channelId) => {
+  const { data } = await axios.get(
+    ` ${BASE_URL}/search?channelId=${channelId}&part=snippet%2Cid&order=date&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}
+    `
+  );
   return data;
 };

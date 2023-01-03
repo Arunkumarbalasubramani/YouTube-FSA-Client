@@ -12,7 +12,7 @@ const ChannelInfo = ({ logoStyle, channelID }) => {
     const get_channel_details = async () => {
       try {
         const data = await getChannelIcon(channelID);
-        console.log(data);
+
         setChanneldetails(data.items[0]);
         setLoading(false);
       } catch (error) {
@@ -21,12 +21,15 @@ const ChannelInfo = ({ logoStyle, channelID }) => {
     };
     get_channel_details();
   }, [channelID]);
-
+  // console.log(channeldetails);
   if (loading) {
     return <p>Loading...</p>;
   } else {
     const {
       id,
+      contentDetails: {
+        relatedPlaylists: { uploads },
+      },
       snippet: {
         title,
         thumbnails: {
@@ -35,6 +38,7 @@ const ChannelInfo = ({ logoStyle, channelID }) => {
       },
       statistics: { subscriberCount },
     } = channeldetails;
+
     return (
       <div className="channel-info">
         <div className="channelTitle">
