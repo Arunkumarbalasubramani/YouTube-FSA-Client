@@ -46,7 +46,13 @@
 .library-loggedIn {
   padding: 0rem 10rem;
   display: flex;
-  gap: 30px;
+  gap: 50px;
+  @media screen and (max-width: 550px) {
+    padding: 0;
+  }
+  @media screen and (max-width: 1136px) {
+    padding: 0rem 3rem;
+  }
 }
 .user-library {
   margin: 2%;
@@ -62,22 +68,33 @@
   gap: 20px;
 }
 .history-videos {
-  height: 208px;
+  height: 180px;
   width: 208px;
+  @media screen and (max-width: 848px) {
+    height: 240px;
+  }
 }
 .user-library-videos {
   display: flex;
   margin-top: 2%;
   flex-wrap: wrap;
+  gap: 20px;
   width: 100%;
   justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 629px) and (max-width: 669px) {
+    gap: 50px;
+  }
 }
 .account-avatar {
   background-color: gray;
   border-radius: 50%;
+  height: 80px;
+  width: 80px;
 }
 .heading {
   font-weight: 600;
+  margin: 2% 0%;
 }
 .user-details {
   display: flex;
@@ -87,4 +104,52 @@
 .detail {
   display: flex;
   justify-content: space-between;
+}
+.lib-video-thumbnail {
+  width: 200px;
+  height: 100px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 2%;
+  @media screen and (max-width: 848px) {
+    width: 245px;
+    height: 140px;
+  }
+}
+.userDetails {
+  @media screen and (max-width: 660px) {
+    display: none;
+  }
+}
+.sub-videos {
+  display: flex;
+  flex-wrap: wrap;
+  // gap: 20px;
+  // width: 100%;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 848px) {
+    gap: 50px;
+  }
+}
+.subscription-heading {
+  font-weight: 600;
+  margin: 5px;
+  padding: 5px;
+}
+// .subscription {
+//   height: 180px;
+//   width: 208px;
+//   display: flex;
+//   flex-direction: column;
+//   @media screen and (max-width: 848px) {
+//     height: 240px;
+//   }
+// }
+.subsribedVideos-container {
+  padding: 0rem 10rem;
+  height: 100vh;
+  @media screen and (max-width: 848px) {
+    padding: 0rem 1rem;
+  }
 }

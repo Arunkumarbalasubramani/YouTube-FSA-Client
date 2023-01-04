@@ -21,6 +21,7 @@ const VideosPage = () => {
   const { videoId } = useParams();
   const [loading, setLoading] = useState(true);
   const [videoDetail, setvideoDetail] = useState([]);
+
   useEffect(() => {
     const get_video_details = async () => {
       try {
@@ -107,33 +108,35 @@ const VideosPage = () => {
                   </span>
                 </Nav.Link>
               </div>
-              <div className="add-comments">
-                <img src="" className="account-image" alt="account-avatar" />
-                <input
-                  type="text"
-                  name="add-comments"
-                  id="add-comments"
-                  placeholder="Add Comment"
-                  className="comment-input"
-                />
-              </div>
-              <div className="comment-btn">
-                <Button>Comment</Button>
-              </div>
-              <div className="previous-comments">
-                <img src="" className="account-image" alt="account-avatar" />
-                <div className="comments">
-                  <div className="userName">
-                    @arunKur <span> 5 Days ago</span>
-                  </div>
-                  <div className="comment-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolor minus saepe nihil repellendus, accusantium quaerat sed
-                    eius odit numquam consequuntur. Quae voluptatibus eligendi
-                    ut dignissimos!
-                  </div>
-                  <div className="comment-actions">
-                    <BiLike size={22} /> <BiDislike size={22} />
+              <div className="comments">
+                <div className="add-comments">
+                  <img src="" className="account-image" alt="account-avatar" />
+                  <input
+                    type="text"
+                    name="add-comments"
+                    id="add-comments"
+                    placeholder="Add Comment"
+                    className="comment-input"
+                  />
+                </div>
+                <div className="comment-btn">
+                  <Button>Comment</Button>
+                </div>
+                <div className="previous-comments">
+                  <img src="" className="account-image" alt="account-avatar" />
+                  <div className="comments">
+                    <div className="userName">
+                      @arunKur <span> 5 Days ago</span>
+                    </div>
+                    <div className="comment-content">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Dolor minus saepe nihil repellendus, accusantium quaerat
+                      sed eius odit numquam consequuntur. Quae voluptatibus
+                      eligendi ut dignissimos!
+                    </div>
+                    <div className="comment-actions">
+                      <BiLike size={22} /> <BiDislike size={22} />
+                    </div>
                   </div>
                 </div>
               </div>

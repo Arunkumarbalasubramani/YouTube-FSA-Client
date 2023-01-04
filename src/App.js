@@ -13,6 +13,8 @@ import {
   SignIn,
   SignUp,
   CategoryVideos,
+  LikedVideos,
+  Explore,
 } from "./Components/exports";
 
 import { createContext, useState } from "react";
@@ -49,9 +51,11 @@ function App() {
               <Route path="/library" element={<Library />} />
               <Route path="/watchlater" element={<WatchLater />} />
               <Route path="/subscriptions" element={<Subscriptions />} />
+              <Route path="/exploreChannels" element={<Explore />} />
               <Route path="/video/:videoId" element={<VideosPage />} />
               <Route path="/search/:category" element={<CategoryVideos />} />
               <Route path="/channel/:channelId" element={<ChannelPage />} />
+              <Route path="/liked-videos" element={<LikedVideos />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="*" element={<MainFeed />} />

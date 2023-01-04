@@ -27,6 +27,7 @@ import {
   LightbulbOutlinedIcon,
   AddCircleOutlineIcon,
   FeedbackOutlinedIcon,
+  ExploreIcon,
 } from "../exports";
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +35,7 @@ const SideMenu = ({ sideBar, showSideBar }) => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div>
       <div className="lg-sidebar ">
         <div className="menu-section">
           <div className="menu-item" onClick={() => navigate("/")}>
@@ -58,6 +59,13 @@ const SideMenu = ({ sideBar, showSideBar }) => {
           <div className="menu-item" onClick={() => navigate("/history")}>
             <HistoryOutlinedIcon />
             <span className="menu-text">History</span>
+          </div>
+          <div
+            className="menu-item"
+            onClick={() => navigate("/exploreChannels")}
+          >
+            <ExploreIcon />
+            <span className="menu-text">Explore More</span>
           </div>
         </div>
         <hr className="hLine" />
@@ -210,7 +218,7 @@ const SideMenu = ({ sideBar, showSideBar }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

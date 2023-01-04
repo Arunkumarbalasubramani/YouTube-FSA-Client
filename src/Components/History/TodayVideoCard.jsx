@@ -3,6 +3,8 @@ import { CloseOutlinedIcon, MoreVertOutlinedIcon } from "../exports";
 import thumbnail from "../../assets/demoThumbnail.PNG";
 import { Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 const TodayVideoCard = () => {
   const navigate = useNavigate();
@@ -27,7 +29,11 @@ const TodayVideoCard = () => {
         </div>
       </div>
       <div className="history-actions-icons">
-        <CloseOutlinedIcon className="history-actions-icons" />
+        <Tooltip title="Remove from This List" arrow>
+          <IconButton>
+            <CloseOutlinedIcon className="history-actions-icons" />
+          </IconButton>
+        </Tooltip>
       </div>
       <div className="history-actions-icons">
         <MoreVertOutlinedIcon className="history-actions-icons" />

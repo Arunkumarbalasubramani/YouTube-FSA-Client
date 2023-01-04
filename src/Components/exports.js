@@ -6,11 +6,13 @@ export { default as Library } from "./Library/Library";
 export { default as Subscriptions } from "./Subscriptions/Subscriptions";
 export { default as VideosPage } from "./Videos/VideosPage";
 export { default as WatchLater } from "./History/WatchLater";
+export { default as LikedVideos } from "./Library/LikedVideos";
 export { default as MainFeed } from "./MainFeed/MainFeed";
 export { default as CategoryVideos } from "./MainFeed/CategoryVideos";
 export { default as ChannelPage } from "./ChannelPage/ChannelPage";
 export { default as SignIn } from "./SignIn";
 export { default as SignUp } from "./SignUp";
+export { default as Explore } from "./Subscriptions/Explore";
 
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as ExploreOutlinedIcon } from "@mui/icons-material/ExploreOutlined";
@@ -41,7 +43,7 @@ export { default as FeedbackOutlinedIcon } from "@mui/icons-material/FeedbackOut
 export { default as SearchOutlinedIcon } from "@mui/icons-material/SearchOutlined";
 export { default as MicIcon } from "@mui/icons-material/Mic";
 export { default as MoreVertOutlinedIcon } from "@mui/icons-material/MoreVertOutlined";
-
+export { default as ExploreIcon } from "@mui/icons-material/Explore";
 export { default as SafetyCheckIcon } from "@mui/icons-material/SafetyCheck";
 export { default as Brightness3OutlinedIcon } from "@mui/icons-material/Brightness3Outlined";
 export { default as TranslateOutlinedIcon } from "@mui/icons-material/TranslateOutlined";

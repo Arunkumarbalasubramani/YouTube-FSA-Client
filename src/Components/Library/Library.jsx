@@ -8,6 +8,7 @@ import {
   ThumbUpOutlinedIcon,
 } from "../exports";
 import SmallvideoCard from "../Videos/SmallvidoCard";
+import demoAvatar from "../../assets/demoAvatar.jpg";
 import "./Library.scss";
 const Library = () => {
   const isAccountLoggedIn = true;
@@ -52,10 +53,6 @@ const Library = () => {
                 <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
               </div>
             </div>
             <hr className="hLine" />
@@ -79,14 +76,6 @@ const Library = () => {
                 <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
-                <SmallvideoCard styleType={styleType} />
               </div>
             </div>
             <hr className="hLine" />
@@ -97,11 +86,15 @@ const Library = () => {
                   Liked Videos
                 </div>
                 <div className="seeAll-btn ">
-                  <button className="seeAll-btn ">See All</button>
+                  <button
+                    className="seeAll-btn "
+                    onClick={() => navigate("/liked-videos")}
+                  >
+                    See All
+                  </button>
                 </div>
               </div>
               <div className="user-library-videos">
-                <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
                 <SmallvideoCard styleType={styleType} />
@@ -110,7 +103,13 @@ const Library = () => {
             </div>
           </div>
           <div className="userDetails">
-            <img src="" alt="account-avatar" className="account-avatar" />
+            <div>
+              <img
+                src={demoAvatar}
+                alt="account-avatar"
+                className="account-avatar"
+              />
+            </div>
 
             <hr className="hLine" />
             <h1 className="user-name"> The Touring Talks</h1>
