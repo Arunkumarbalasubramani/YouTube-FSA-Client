@@ -21,7 +21,15 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
   const navigate = useNavigate();
   const isLoggedIn = true;
   const [nextTheme, setNextTheme] = useState("Dark");
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}`);
+      setSearchTerm("");
+    }
+  };
   return (
     <>
       <div className="NavbarContainer">
@@ -39,15 +47,21 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
         </div>
         <div className="search-container">
           <div className="search">
-            <input
-              id="search "
-              type="text"
-              className="search-input"
-              placeholder="Search"
-            />
-            <button className="search-btn">
-              <SearchOutlinedIcon />
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input
+                id="search "
+                type="text"
+                placeholder="Search ..."
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+                className="search-input"
+                value={searchTerm}
+              />
+              <button className="search-btn">
+                <SearchOutlinedIcon />
+              </button>
+            </form>
           </div>
         </div>
         <div className="themeSwitch">

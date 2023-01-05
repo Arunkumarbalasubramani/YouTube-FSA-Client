@@ -13,6 +13,7 @@ export { default as ChannelPage } from "./ChannelPage/ChannelPage";
 export { default as SignIn } from "./SignIn";
 export { default as SignUp } from "./SignUp";
 export { default as Explore } from "./Subscriptions/Explore";
+export { default as SearchFeed } from "./Navbar/SearchFeed";
 
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as ExploreOutlinedIcon } from "@mui/icons-material/ExploreOutlined";

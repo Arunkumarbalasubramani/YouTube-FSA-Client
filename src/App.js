@@ -15,6 +15,7 @@ import {
   CategoryVideos,
   LikedVideos,
   Explore,
+  SearchFeed,
 } from "./Components/exports";
 
 import { createContext, useState } from "react";
@@ -53,7 +54,7 @@ function App() {
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/exploreChannels" element={<Explore />} />
               <Route path="/video/:videoId" element={<VideosPage />} />
-              <Route path="/search/:category" element={<CategoryVideos />} />
+              <Route path="/search/:searchTerm" element={<SearchFeed />} />
               <Route path="/channel/:channelId" element={<ChannelPage />} />
               <Route path="/liked-videos" element={<LikedVideos />} />
               <Route path="/signin" element={<SignIn />} />
