@@ -23,9 +23,9 @@ export const getVideoDetails = async (videoId) => {
   return data;
 };
 
-export const getVideosByCategory = async (category) => {
+export const searchVideos = async (searchTerm) => {
   const { data } = await axios.get(
-    `${BASE_URL}/search?part=snippet&maxResults=25&q=${category}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+    `${BASE_URL}/search?part=snippet&maxResults=25&q=${searchTerm}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
   );
   return data;
 };

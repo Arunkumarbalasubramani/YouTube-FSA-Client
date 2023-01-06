@@ -30,7 +30,6 @@ const ChannelPage = () => {
     get_video_details();
   }, [channelId]);
 
-  console.log(channelDetails);
   if (loading) {
     return <p>Loading...</p>;
   } else {

@@ -47,7 +47,7 @@ const Navbar = ({ theme, toggleTheme, showSideBar }) => {
         </div>
         <div className="search-container">
           <div className="search">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="searchInput">
               <input
                 id="search "
                 type="text"

@@ -84,39 +84,60 @@ const SideMenu = ({ sideBar, showSideBar }) => {
         <div className="menu-section-container">
           <h6 className="sub-head">Explore</h6>
           <div className="menu-section">
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Trending`)}
+            >
               <WhatshotIcon />
               <span className="menu-text">Trending</span>
             </div>
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Music`)}
+            >
               <MusicNoteIcon />
               <span className="menu-text">Music</span>
             </div>
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Movies`)}
+            >
               <LocalMoviesIcon />
               <span className="menu-text">Movies</span>
             </div>
-            <div className="menu-item">
+            <div className="menu-item" onClick={() => navigate(`/search/Live`)}>
               <LiveTvOutlinedIcon />
               <span className="menu-text">Live</span>
             </div>
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Gaming`)}
+            >
               <VideogameAssetOutlinedIcon />
               <span className="menu-text">Gaming</span>
             </div>
-            <div className="menu-item">
+            <div className="menu-item" onClick={() => navigate(`/search/News`)}>
               <ArticleOutlinedIcon />
               <span className="menu-text">News</span>
             </div>
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Sports`)}
+            >
               <EmojiEventsOutlinedIcon />
               <span className="menu-text">Sports</span>
             </div>
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Learning`)}
+            >
               <LightbulbOutlinedIcon />
               <span className="menu-text">Learning</span>
             </div>
-            <div className="menu-item">
+            <div
+              className="menu-item"
+              onClick={() => navigate(`/search/Fashion&Beauty`)}
+            >
               <DryCleaningOutlinedIcon />
               <span className="menu-text">Fashion&Beauty</span>
             </div>
