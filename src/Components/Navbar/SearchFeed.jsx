@@ -39,28 +39,34 @@ const SearchFeed = () => {
             <span className="feed-title-text"> {searchTerm}</span> Videos
           </Typography>
           <Stack direction="row" gap={2} flexWrap="wrap" justifyContent="start">
-            {searchFeedVideos.map(
-              (
-                {
-                  id: { videoId },
-                  snippet: { publishedAt, channelId, channelTitle, title },
-                  // thumbnails: {
-                  //   high: { url }
-                  //   ,
-                  // },
-                },
-                index
-              ) => (
-                <Box className="search-video-results" key={index}>
-                  <div className="today-video-container">
-                    <div className="today-videocard">
-                      <img
-                        src={thumbnail}
-                        alt="video-thumbnail"
-                        className="today-video-thumbnail"
-                        onClick={() => navigate(`/video/${videoId}`)}
-                      />
-                      <div className="today-video-details">
+            <Box className="search-video-results">
+              <div className="search-video-container">
+                {searchFeedVideos.map(
+                  (
+                    {
+                      id: { videoId },
+                      snippet: {
+                        publishedAt,
+                        channelId,
+                        channelTitle,
+                        title,
+                        thumbnails: {
+                          high: { url },
+                        },
+                      },
+                    },
+                    index
+                  ) => (
+                    <div className="search-videocard" key={index}>
+                      <div className="search-thumbnail">
+                        <img
+                          src={url}
+                          alt="video-thumbnail"
+                          className="search-video-thumbnail"
+                          onClick={() => navigate(`/video/${videoId}`)}
+                        />
+                      </div>
+                      <div className="search-video-details">
                         <h1 className="video-title">{title}</h1>
                         <Nav.Link
                           onClick={() => navigate(`/channel/${channelId}`)}
@@ -74,10 +80,10 @@ const SearchFeed = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Box>
-              )
-            )}
+                  )
+                )}
+              </div>
+            </Box>
 
             {/* ))} */}
           </Stack>
