@@ -29,7 +29,7 @@ const ChannelPage = () => {
     };
     get_video_details();
   }, [channelId]);
-
+  console.log(channelDetails);
   if (loading) {
     return <p>Loading...</p>;
   } else {
@@ -54,15 +54,20 @@ const ChannelPage = () => {
                   (
                     {
                       id: { videoId },
-                      snippet: { title, publishedAt },
-                      thumbnails,
+                      snippet: {
+                        title,
+                        publishedAt,
+                        thumbnails: {
+                          high: { url },
+                        },
+                      },
                     },
                     index
                   ) => (
                     <div className="channel-videoCard" key={index}>
                       <div className="video-top">
                         <img
-                          src={thumbnail}
+                          src={url}
                           alt="video-thumbnail"
                           className="channel-video-thumbnail"
                           onClick={() => {

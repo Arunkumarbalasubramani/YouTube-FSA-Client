@@ -47,7 +47,7 @@ const VideoCard = ({ thumbnailStyle, videocardStyle, video }) => {
     <div className={!videocardStyle ? "videocard-container" : videocardStyle}>
       <div className="video-top">
         <img
-          src={standard.url}
+          src={standard?.url}
           alt="video-thumbnail"
           className={!thumbnailStyle ? "video-thumbnail" : thumbnailStyle}
           onClick={() => {
