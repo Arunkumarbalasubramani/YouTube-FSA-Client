@@ -20,10 +20,21 @@
   width: 100px;
   border-radius: 50%;
 }
-.channel-cards {
+// .channel-cards {
+//   display: flex;
+//   flex-wrap: wrap;
+
+//   gap: 10px;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.popular-section {
   display: flex;
+  flex-direction: column;
+}
+.channelCards {
+  display: flex;
+  margin: 2%;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
 }

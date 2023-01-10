@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllVideos } from "../actions";
 import CategoriesBar from "./CategoriesBar";
-import CategoryVideos from "./CategoryVideos";
 import "./MainFeed.scss";
 import VideoCard from "./VideoCard";
 import Skeleton from "react-loading-skeleton";
@@ -9,11 +8,6 @@ import Skeleton from "react-loading-skeleton";
 const MainFeed = () => {
   const [videoDetail, setVideoDetail] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [category, setcategory] = useState(null);
-  const [categoryVideos, setcategoryVideos] = useState(null);
-  const selectedCategory = (data) => {
-    setcategory(data);
-  };
 
   useEffect(() => {
     const get_video_details = async () => {
@@ -36,16 +30,9 @@ const MainFeed = () => {
   return (
     <div className="mainfeed-container">
       <div>
-        <CategoriesBar selectedcategory={selectedCategory} />
+        <CategoriesBar />
       </div>
       <div className="video-comp">
-        {/* {videoDetail && !category ? (
-          videoDetail.map((item, index) => (
-            <VideoCard key={index} video={item} />
-          ))
-        ) : (
-          <CategoryVideos />
-        )} */}
         {videoDetail.map((video, index) => (
           <VideoCard key={index} video={video} />
         ))}

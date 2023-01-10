@@ -15,6 +15,8 @@ export { default as SignUp } from "./SignUp";
 export { default as Explore } from "./Subscriptions/Explore";
 export { default as SearchFeed } from "./Navbar/SearchFeed";
 
+export { default as ExpandMoreIcon } from "@mui/icons-material/ExpandMore";
+
 export { default as HomeIcon } from "@mui/icons-material/Home";
 export { default as ExploreOutlinedIcon } from "@mui/icons-material/ExploreOutlined";
 export { default as SubscriptionsOutlinedIcon } from "@mui/icons-material/SubscriptionsOutlined";

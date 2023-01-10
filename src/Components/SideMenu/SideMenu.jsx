@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SideMenu.scss";
-
+import thumbnail from "../../assets/demoThumbnail.PNG";
 import ShortsLogo from "../../assets/shorts.svg";
 import PremiumLogo from "../../assets/premium.png";
 import MusicLogo from "../../assets/music.png";
@@ -28,12 +28,13 @@ import {
   AddCircleOutlineIcon,
   FeedbackOutlinedIcon,
   ExploreIcon,
+  ExpandMoreIcon,
 } from "../exports";
 import { useNavigate } from "react-router-dom";
-
+const isAccountLoggedIn = true;
 const SideMenu = ({ sideBar, showSideBar }) => {
   const navigate = useNavigate();
-
+  const [subscriptions, setSubscriptions] = useState(false);
   return (
     <div>
       <div className="lg-sidebar ">
@@ -70,15 +71,111 @@ const SideMenu = ({ sideBar, showSideBar }) => {
         </div>
         <hr className="hLine" />
         <div className="login-container">
-          <p className="login-text">
-            Sign in to like videos, comment, and subscribe.
-          </p>
-          <div className="login">
-            <button className="sign-in" onClick={() => navigate("/signin")}>
-              <AccountCircleOutlinedIcon />
-              Sign In
-            </button>
-          </div>
+          {!isAccountLoggedIn ? (
+            <div>
+              <p className="login-text">
+                Sign in to like videos, comment, and subscribe.
+              </p>
+              <div className="login">
+                <button className="sign-in" onClick={() => navigate("/signin")}>
+                  <AccountCircleOutlinedIcon />
+                  Sign In
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="menu-section-container">
+              <h6 className="sub-head">Subscriptions</h6>
+              <div className="menu-section">
+                <div
+                  className="menu-item"
+                  onClick={() => navigate(`/channel/test`)}
+                >
+                  <img
+                    src={thumbnail}
+                    alt="channel-thumbnail"
+                    className="channel-image"
+                  />
+                  <span className="menu-text">Channel1</span>
+                </div>
+                <div
+                  className="menu-item"
+                  onClick={() => navigate(`/channel/test`)}
+                >
+                  <img
+                    src={thumbnail}
+                    alt="channel-thumbnail"
+                    className="channel-image"
+                  />
+                  <span className="menu-text">Channel1</span>
+                </div>
+                <div
+                  className="menu-item"
+                  onClick={() => navigate(`/channel/test`)}
+                >
+                  <img
+                    src={thumbnail}
+                    alt="channel-thumbnail"
+                    className="channel-image"
+                  />
+                  <span className="menu-text">Channel1</span>
+                </div>
+                <div
+                  className="menu-item"
+                  onClick={() => navigate(`/channel/test`)}
+                >
+                  <img
+                    src={thumbnail}
+                    alt="channel-thumbnail"
+                    className="channel-image"
+                  />
+                  <span className="menu-text">Channel1</span>
+                </div>
+                <div
+                  className="menu-item"
+                  onClick={() => navigate(`/channel/test`)}
+                >
+                  <img
+                    src={thumbnail}
+                    alt="channel-thumbnail"
+                    className="channel-image"
+                  />
+                  <span className="menu-text">Channel1</span>
+                </div>{" "}
+                {subscriptions ? (
+                  <>
+                    <div
+                      className="menu-item"
+                      onClick={() => navigate(`/channel/test`)}
+                    >
+                      <img
+                        src={thumbnail}
+                        alt="channel-thumbnail"
+                        className="channel-image"
+                      />
+                      <span className="menu-text">Channel1</span>
+                    </div>
+                    <div
+                      className="menu-item"
+                      onClick={() => navigate(`/exploreChannels`)}
+                    >
+                      <AddCircleOutlineIcon />
+                      <span className="menu-text">Browse More</span>
+                    </div>
+                  </>
+                ) : null}
+                <div
+                  className="menu-item"
+                  onClick={() => setSubscriptions(!subscriptions)}
+                >
+                  <ExpandMoreIcon />
+                  <span className="menu-text">
+                    {subscriptions ? " Show Less" : "Show More"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <hr className="hLine" />
         <div className="menu-section-container">
@@ -144,13 +241,7 @@ const SideMenu = ({ sideBar, showSideBar }) => {
           </div>
         </div>
         <hr className="hLine" />
-        <div className="menu-section">
-          <div className="menu-item">
-            <AddCircleOutlineIcon />
-            <span className="menu-text"> Browse Channels</span>
-          </div>
-        </div>
-        <hr className="hLine" />
+
         <div className="menu-section-container">
           <h6 className="sub-head">More From YouTube</h6>
           <div className="menu-section">

@@ -84,8 +84,6 @@ const SearchFeed = () => {
                 )}
               </div>
             </Box>
-
-            {/* ))} */}
           </Stack>
         </Box>
       </div>

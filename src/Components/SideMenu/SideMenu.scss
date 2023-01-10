@@ -133,7 +133,6 @@
 .final {
   margin: 2%;
   padding: 0rem 1rem;
-
   font-weight: 700;
   font-size: 13px;
   display: grid;
@@ -167,7 +166,6 @@
 .lg-sidebar {
   display: none;
   width: 220px;
-
   overflow-y: visible;
 }
 
@@ -242,5 +240,30 @@
     .md-menu-container {
       height: 100vh;
     }
+  }
+}
+
+.channel-image {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: red;
+}
+
+.seeAll-button {
+  border: none;
+  background: transparent;
+  color: #3ea6ff;
+  font-weight: 500;
+  border-radius: 12px;
+}
+#Light .seeAll-button {
+  :hover {
+    background: #98cefe;
+  }
+}
+#Dark .seeAll-button {
+  :hover {
+    background: #265a87;
   }
 }
