@@ -61,13 +61,6 @@ const SideMenu = ({ sideBar, showSideBar }) => {
             <HistoryOutlinedIcon />
             <span className="menu-text">History</span>
           </div>
-          <div
-            className="menu-item"
-            onClick={() => navigate("/exploreChannels")}
-          >
-            <ExploreIcon />
-            <span className="menu-text">Explore More</span>
-          </div>
         </div>
         <hr className="hLine" />
         <div className="login-container">

@@ -13,7 +13,7 @@ import {
 
 import SmallvideoCard from "./SmallvidoCard";
 import ChannelInfo from "./ChannelInfo";
-import { getVideoDetails } from "../actions";
+import { getRecommendedVideos, getVideoDetails } from "../actions";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 
@@ -21,11 +21,14 @@ const VideosPage = () => {
   const { videoId } = useParams();
   const [loading, setLoading] = useState(true);
   const [videoDetail, setvideoDetail] = useState([]);
+  const [recommendedVideos, setRecommendedVideos] = useState([]);
 
   useEffect(() => {
     const get_video_details = async () => {
       try {
         const videoDetail = await getVideoDetails(videoId);
+        const recVideosData = await getRecommendedVideos(videoId);
+        setRecommendedVideos(recVideosData.items);
         setvideoDetail(videoDetail.items[0]);
         setLoading(false);
       } catch (error) {
@@ -42,6 +45,7 @@ const VideosPage = () => {
       snippet: { publishedAt, channelId, channelTitle, description, title },
       statistics: { commentCount, viewCount },
     } = videoDetail;
+
     return (
       <div className="video-container">
         <div className="video-wrapper">
@@ -144,11 +148,9 @@ const VideosPage = () => {
           </div>
         </div>
         <div className="recomendation-section">
-          <SmallvideoCard />
-          <SmallvideoCard />
-          <SmallvideoCard />
-          <SmallvideoCard />
-          <SmallvideoCard />
+          {recommendedVideos.map((video) => (
+            <SmallvideoCard video={video} />
+          ))}
         </div>
       </div>
     );

@@ -7,6 +7,12 @@ export const getAllVideos = async () => {
   );
   return data;
 };
+export const getRecommendedVideos = async (videoId) => {
+  const { data } = await axios.get(
+    `${BASE_URL}/search?part=snippet&relatedToVideoId=${videoId}&type=video&&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+  );
+  return data;
+};
 
 export const getChannelIcon = async (channelId) => {
   const { data } = await axios.get(

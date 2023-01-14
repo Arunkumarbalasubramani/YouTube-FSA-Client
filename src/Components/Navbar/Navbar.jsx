@@ -19,7 +19,7 @@ import { IconButton, Tooltip } from "@mui/material";
 
 const Navbar = ({ theme, toggleTheme, showSideBar }) => {
   const navigate = useNavigate();
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const [nextTheme, setNextTheme] = useState("Dark");
   const [searchTerm, setSearchTerm] = useState("");
 

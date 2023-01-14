@@ -36,7 +36,6 @@ const CategoriesBar = ({ selectedcategory }) => {
           }
           onClick={() => {
             setActiveElement(element);
-            selectedcategory(element);
             navigate(`/search/${element}`);
           }}
         >
