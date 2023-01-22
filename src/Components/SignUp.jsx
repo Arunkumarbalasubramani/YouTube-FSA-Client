@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { GoogleIcon } from "./exports";
 import Button from "@mui/material/Button";
@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
   return (
     <div className="sign-in-container">
       {" "}
@@ -24,6 +28,7 @@ const SignUp = () => {
               id="userName"
               className="text-input"
               placeholder="Enter User Name"
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <br />
@@ -35,6 +40,7 @@ const SignUp = () => {
               id="emai-id"
               className="text-input"
               placeholder="Enter Email Id"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <br />
@@ -46,6 +52,7 @@ const SignUp = () => {
               id="password"
               className="text-input"
               placeholder="Enter Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <Button variant="outlined">Sign Up</Button>

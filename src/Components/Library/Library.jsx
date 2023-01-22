@@ -10,13 +10,12 @@ import {
 import SmallvideoCard from "../Videos/SmallvidoCard";
 import demoAvatar from "../../assets/demoAvatar.jpg";
 import "./Library.scss";
-const Library = () => {
-  const isAccountLoggedIn = true;
+const Library = ({ isLoggedIn }) => {
   const styleType = "history-videos";
   const navigate = useNavigate();
   return (
     <div className="library-container">
-      {!isAccountLoggedIn ? (
+      {!isLoggedIn ? (
         <div className="lib-nologin">
           <VideoLibraryOutlinedIcon className="lib-icon" />
           <h1 className="lib-text1">Enjoy your favorite videos</h1>

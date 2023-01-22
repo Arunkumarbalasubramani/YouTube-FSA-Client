@@ -25,6 +25,12 @@ export const ThemeContext = createContext(null);
 function App() {
   const [theme, setTheme] = useState("Light");
   const [sideBar, toggleSideBar] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const handleLogin = (data) => {
+    if (data) {
+      setisLoggedIn(true);
+    }
+  };
   const toggleTheme = () => {
     setTheme((current) => (current === "Light" ? "Dark" : "Light"));
   };
@@ -39,25 +45,46 @@ function App() {
           theme={theme}
           toggleTheme={toggleTheme}
           showSideBar={showSideBar}
+          isLoggedIn={isLoggedIn}
         />
         <div className="App" id={theme}>
           <div className={sideBar ? "menu open" : "menu "}>
-            <SideMenu sideBar={sideBar} showSideBar={showSideBar} />
+            <SideMenu
+              sideBar={sideBar}
+              showSideBar={showSideBar}
+              isLoggedIn={isLoggedIn}
+            />
           </div>
 
           <div className="main">
             <Routes>
-              <Route path="/" element={<MainFeed URL={URL} />} />
-              <Route path="/history" element={<History />} />
-              <Route path="/library" element={<Library />} />
+              <Route
+                path="/"
+                element={<MainFeed URL={URL} isLoggedIn={isLoggedIn} />}
+              />
+              <Route
+                path="/history"
+                element={<History />}
+                isLoggedIn={isLoggedIn}
+              />
+              <Route
+                path="/library"
+                element={<Library isLoggedIn={isLoggedIn} />}
+              />
               <Route path="/watchlater" element={<WatchLater />} />
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/exploreChannels" element={<Explore />} />
-              <Route path="/video/:videoId" element={<VideosPage />} />
+              <Route
+                path="/video/:videoId"
+                element={<VideosPage isLoggedIn={isLoggedIn} />}
+              />
               <Route path="/search/:searchTerm" element={<SearchFeed />} />
               <Route path="/channel/:channelId" element={<ChannelPage />} />
               <Route path="/liked-videos" element={<LikedVideos />} />
-              <Route path="/signin" element={<SignIn />} />
+              <Route
+                path="/signin"
+                element={<SignIn loggedIn={handleLogin} />}
+              />
               <Route path="/signup" element={<SignUp />} />
               <Route path="*" element={<MainFeed />} />
             </Routes>

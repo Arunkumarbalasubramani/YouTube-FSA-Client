@@ -31,8 +31,8 @@ import {
   ExpandMoreIcon,
 } from "../exports";
 import { useNavigate } from "react-router-dom";
-const isAccountLoggedIn = true;
-const SideMenu = ({ sideBar, showSideBar }) => {
+
+const SideMenu = ({ sideBar, showSideBar, isLoggedIn }) => {
   const navigate = useNavigate();
   const [subscriptions, setSubscriptions] = useState(false);
   return (
@@ -64,7 +64,7 @@ const SideMenu = ({ sideBar, showSideBar }) => {
         </div>
         <hr className="hLine" />
         <div className="login-container">
-          {!isAccountLoggedIn ? (
+          {!isLoggedIn ? (
             <div>
               <p className="login-text">
                 Sign in to like videos, comment, and subscribe.

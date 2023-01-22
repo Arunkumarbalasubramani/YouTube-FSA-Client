@@ -11,12 +11,11 @@ import TodayVideoCard from "./TodayVideoCard";
 import "./History.scss";
 import { useNavigate } from "react-router-dom";
 
-const History = () => {
-  const isAccountLoggedIn = true;
+const History = ({ isLoggedIn }) => {
   const navigate = useNavigate();
   return (
     <div className="library-container">
-      {!isAccountLoggedIn ? (
+      {!isLoggedIn ? (
         <div className="lib-nologin">
           <HistoryIcon className="lib-icon" />
           <h1 className="lib-text1">Keep track of what you watch</h1>

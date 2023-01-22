@@ -16,8 +16,9 @@ import ChannelInfo from "./ChannelInfo";
 import { getRecommendedVideos, getVideoDetails } from "../actions";
 import { useParams } from "react-router-dom";
 import moment from "moment";
+import numeral from "numeral";
 
-const VideosPage = () => {
+const VideosPage = ({ isLoggedIn }) => {
   const { videoId } = useParams();
   const [loading, setLoading] = useState(true);
   const [videoDetail, setvideoDetail] = useState([]);
@@ -43,7 +44,7 @@ const VideosPage = () => {
   } else {
     const {
       snippet: { publishedAt, channelId, channelTitle, description, title },
-      statistics: { commentCount, viewCount },
+      statistics: { commentCount, viewCount, likeCount },
     } = videoDetail;
 
     return (
@@ -70,7 +71,8 @@ const VideosPage = () => {
                     <span>
                       <BiLike size={20} />
                     </span>
-                    Likes
+                    {numeral(likeCount).format("0.a").toUpperCase()}
+                    <span>Likes</span>
                   </div>
                   <button className="dislike-btn">
                     <BiDislike size={20} />
@@ -124,7 +126,7 @@ const VideosPage = () => {
                   />
                 </div>
                 <div className="comment-btn">
-                  <Button>Comment</Button>
+                  <Button disabled={!isLoggedIn}>Comment</Button>
                 </div>
                 <div className="previous-comments">
                   <img src="" className="account-image" alt="account-avatar" />

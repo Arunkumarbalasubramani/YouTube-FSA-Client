@@ -17,9 +17,9 @@ import demoAvatar from "../../assets/demoAvatar.jpg";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { IconButton, Tooltip } from "@mui/material";
 
-const Navbar = ({ theme, toggleTheme, showSideBar }) => {
+const Navbar = ({ theme, toggleTheme, showSideBar, isLoggedIn }) => {
   const navigate = useNavigate();
-  const isLoggedIn = false;
+
   const [nextTheme, setNextTheme] = useState("Dark");
   const [searchTerm, setSearchTerm] = useState("");
 

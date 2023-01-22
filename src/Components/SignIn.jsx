@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import { GoogleIcon } from "./exports";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-const SignIn = () => {
+import { signInFunction } from "./actions";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
+
+const SignIn = ({ loggedIn }) => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    dispatch(loginStart());
+    try {
+      const res = await axios.post(
+        `https://youtube-server-app.onrender.com/signin`,
+        { name, password }
+      );
+      dispatch(loginSuccess(res.data));
+      // loggedIn(res.data);
+      navigate("/");
+    } catch (error) {
+      dispatch(loginFailure(error));
+      console.log(error);
+    }
+  };
   return (
     <div className="sign-in-container">
       <div className="sign-in-card">
@@ -22,6 +46,7 @@ const SignIn = () => {
               id="userName"
               className="text-input"
               placeholder="Enter User Name"
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <br />
@@ -33,9 +58,12 @@ const SignIn = () => {
               id="password"
               className="text-input"
               placeholder="Enter Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <Button variant="outlined">Sign In</Button>
+          <Button variant="outlined" onClick={handleLogin}>
+            Sign In
+          </Button>
         </form>
         <div className="addnl-actions">
           <Nav.Link>
