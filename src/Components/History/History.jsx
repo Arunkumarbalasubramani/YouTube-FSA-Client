@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
@@ -10,9 +10,52 @@ import {
 import TodayVideoCard from "./TodayVideoCard";
 import "./History.scss";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const History = ({ isLoggedIn }) => {
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+const History = ({ userId, isLoggedIn }) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [history, setHistory] = useState([]);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const getHistory = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          `https://youtube-server-app.onrender.com/${userId}/history`
+        );
+        setHistory(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getHistory();
+  }, []);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    const response = await axios.delete(
+      `https://youtube-server-app.onrender.com/${userId}/delete/history`
+    );
+    window.location.reload();
+    setOpen(true);
+  };
   return (
     <div className="library-container">
       {!isLoggedIn ? (
@@ -35,26 +78,30 @@ const History = ({ isLoggedIn }) => {
             <div className="page-title">
               <h6 className="heading">Watch History</h6>
               <Tooltip title="Delete All History" arrow>
-                <IconButton>
+                <IconButton onClick={handleDelete}>
                   <DeleteSweepOutlinedIcon className="deleteAll-icon" />
                 </IconButton>
               </Tooltip>
             </div>
             <div className="today-history">
-              <h6 className="heading">Today</h6>
-              <TodayVideoCard />
-              <TodayVideoCard />
-              <TodayVideoCard />
-              <TodayVideoCard />
+              {history.map((data, index) => (
+                <TodayVideoCard
+                  key={index}
+                  data={data}
+                  page={"history"}
+                  userId={userId}
+                />
+              ))}
             </div>
-            <hr className="hLine" />
-            <div className="yesterday-history">
-              <h6 className="heading">Yesterday</h6>
-              <TodayVideoCard />
-              <TodayVideoCard />
-              <TodayVideoCard />
-              <TodayVideoCard />
-            </div>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                sx={{ width: "100%" }}
+              >
+                Cleared
+              </Alert>
+            </Snackbar>
           </div>
         </div>
       )}

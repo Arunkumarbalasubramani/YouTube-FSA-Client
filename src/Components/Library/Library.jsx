@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AccountCircleOutlinedIcon,
@@ -10,9 +10,31 @@ import {
 import SmallvideoCard from "../Videos/SmallvidoCard";
 import demoAvatar from "../../assets/demoAvatar.jpg";
 import "./Library.scss";
-const Library = ({ isLoggedIn }) => {
+import { getHistory, getLikedVideos, getWatchLater } from "../actions";
+
+const Library = ({ isLoggedIn, userId }) => {
   const styleType = "history-videos";
   const navigate = useNavigate();
+  const [history, setHistory] = useState("");
+  const [watchLater, setWatchLater] = useState("");
+  const [likedVideos, setLikedVideos] = useState();
+
+  useEffect(() => {
+    const getLibraryData = async () => {
+      const historyData = await getHistory(userId);
+      setHistory(historyData);
+      const likedvideosData = await getLikedVideos(userId);
+      setLikedVideos(likedvideosData);
+      const watchLaterData = await getWatchLater(userId);
+      setWatchLater(watchLaterData);
+    };
+    getLibraryData();
+  }, []);
+
+  useEffect(() => {
+    console.log(history, watchLater, likedVideos);
+  }, [history, watchLater, likedVideos]);
+
   return (
     <div className="library-container">
       {!isLoggedIn ? (

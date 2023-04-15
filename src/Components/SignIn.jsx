@@ -10,24 +10,26 @@ import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
 
 const SignIn = ({ loggedIn }) => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const handleLogin = async (e) => {
-    e.preventDefault();
-    dispatch(loginStart());
-    try {
-      const res = await axios.post(
-        `https://youtube-server-app.onrender.com/signin`,
-        { name, password }
-      );
-      dispatch(loginSuccess(res.data));
-      // loggedIn(res.data);
-      navigate("/");
-    } catch (error) {
-      dispatch(loginFailure(error));
-      console.log(error);
-    }
+    const data = { email: email, password: password };
+    console.log(data);
+    // e.preventDefault();
+    // dispatch(loginStart());
+    // try {
+    //   const res = await axios.post(
+    //     `https://youtube-server-app.onrender.com/signin`,
+    //     { email, password }
+    //   );
+    //   dispatch(loginSuccess(res.data));
+    //   // loggedIn(res.data);
+    //   navigate("/");
+    // } catch (error) {
+    //   dispatch(loginFailure(error));
+    //   console.log(error);
+    // }
   };
   return (
     <div className="sign-in-container">
@@ -39,14 +41,14 @@ const SignIn = ({ loggedIn }) => {
         </div>
         <form className=" sign-in-form">
           <div className="input-div">
-            <label htmlFor="userName">User Name</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              name="userName"
-              id="userName"
+              type="email"
+              name="email"
+              id="email"
               className="text-input"
-              placeholder="Enter User Name"
-              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter Email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <br />

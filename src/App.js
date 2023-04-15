@@ -25,7 +25,8 @@ export const ThemeContext = createContext(null);
 function App() {
   const [theme, setTheme] = useState("Light");
   const [sideBar, toggleSideBar] = useState(false);
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(true);
+  const userId = "64364dda0eee04daf87af91a";
   const handleLogin = (data) => {
     if (data) {
       setisLoggedIn(true);
@@ -53,6 +54,7 @@ function App() {
               sideBar={sideBar}
               showSideBar={showSideBar}
               isLoggedIn={isLoggedIn}
+              userId={userId}
             />
           </div>
 
@@ -64,23 +66,33 @@ function App() {
               />
               <Route
                 path="/history"
-                element={<History />}
-                isLoggedIn={isLoggedIn}
+                element={<History userId={userId} isLoggedIn={isLoggedIn} />}
               />
               <Route
                 path="/library"
-                element={<Library isLoggedIn={isLoggedIn} />}
+                element={<Library isLoggedIn={isLoggedIn} userId={userId} />}
               />
-              <Route path="/watchlater" element={<WatchLater />} />
+              <Route
+                path="/watchlater"
+                element={<WatchLater isLoggedIn={isLoggedIn} userId={userId} />}
+              />
               <Route path="/subscriptions" element={<Subscriptions />} />
               <Route path="/exploreChannels" element={<Explore />} />
               <Route
                 path="/video/:videoId"
-                element={<VideosPage isLoggedIn={isLoggedIn} />}
+                element={<VideosPage isLoggedIn={isLoggedIn} userId={userId} />}
               />
               <Route path="/search/:searchTerm" element={<SearchFeed />} />
-              <Route path="/channel/:channelId" element={<ChannelPage />} />
-              <Route path="/liked-videos" element={<LikedVideos />} />
+              <Route
+                path="/channel/:channelId"
+                element={<ChannelPage userId={userId} />}
+              />
+              <Route
+                path="/liked-videos"
+                element={
+                  <LikedVideos isLoggedIn={isLoggedIn} userId={userId} />
+                }
+              />
               <Route
                 path="/signin"
                 element={<SignIn loggedIn={handleLogin} />}

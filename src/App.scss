@@ -123,3 +123,10 @@
   -webkit-line-clamp: $num;
   -webkit-box-orient: vertical;
 }
+.like {
+  display: flex;
+  gap: 4px;
+}
+.message {
+  font-size: 4rem;
+}

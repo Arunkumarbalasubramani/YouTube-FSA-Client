@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SideMenu.scss";
 import thumbnail from "../../assets/demoThumbnail.PNG";
 import ShortsLogo from "../../assets/shorts.svg";
@@ -31,10 +31,38 @@ import {
   ExpandMoreIcon,
 } from "../exports";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const SideMenu = ({ sideBar, showSideBar, isLoggedIn }) => {
+const SideMenu = ({ sideBar, showSideBar, isLoggedIn, userId }) => {
   const navigate = useNavigate();
-  const [subscriptions, setSubscriptions] = useState(false);
+  const [subscriptions, setSubscriptions] = useState([]);
+  const [showMore, setShowMore] = useState(false);
+  useEffect(() => {
+    const getSubscriptions = async () => {
+      try {
+        const response = await axios.get(
+          `https://youtube-server-app.onrender.com/${userId}/subscriptions`
+        );
+        setSubscriptions(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getSubscriptions();
+  }, []);
+
+  const handleShowMore = () => {
+    setShowMore(true);
+  };
+
+  const handleShowLess = () => {
+    setShowMore(false);
+  };
+
+  const displayedSubscriptions = showMore
+    ? subscriptions
+    : subscriptions.slice(0, 3);
+
   return (
     <div>
       <div className="lg-sidebar ">
@@ -80,92 +108,35 @@ const SideMenu = ({ sideBar, showSideBar, isLoggedIn }) => {
             <div className="menu-section-container">
               <h6 className="sub-head">Subscriptions</h6>
               <div className="menu-section">
-                <div
-                  className="menu-item"
-                  onClick={() => navigate(`/channel/test`)}
-                >
-                  <img
-                    src={thumbnail}
-                    alt="channel-thumbnail"
-                    className="channel-image"
-                  />
-                  <span className="menu-text">Channel1</span>
-                </div>
-                <div
-                  className="menu-item"
-                  onClick={() => navigate(`/channel/test`)}
-                >
-                  <img
-                    src={thumbnail}
-                    alt="channel-thumbnail"
-                    className="channel-image"
-                  />
-                  <span className="menu-text">Channel1</span>
-                </div>
-                <div
-                  className="menu-item"
-                  onClick={() => navigate(`/channel/test`)}
-                >
-                  <img
-                    src={thumbnail}
-                    alt="channel-thumbnail"
-                    className="channel-image"
-                  />
-                  <span className="menu-text">Channel1</span>
-                </div>
-                <div
-                  className="menu-item"
-                  onClick={() => navigate(`/channel/test`)}
-                >
-                  <img
-                    src={thumbnail}
-                    alt="channel-thumbnail"
-                    className="channel-image"
-                  />
-                  <span className="menu-text">Channel1</span>
-                </div>
-                <div
-                  className="menu-item"
-                  onClick={() => navigate(`/channel/test`)}
-                >
-                  <img
-                    src={thumbnail}
-                    alt="channel-thumbnail"
-                    className="channel-image"
-                  />
-                  <span className="menu-text">Channel1</span>
-                </div>{" "}
-                {subscriptions ? (
+                {displayedSubscriptions.map((sub, index) => (
+                  <div
+                    key={index}
+                    className="menu-item"
+                    onClick={() => navigate(`/channel/${sub.channelId}`)}
+                  >
+                    <img
+                      src={sub.channelAvatar}
+                      alt="channel-thumbnail"
+                      className="channel-image"
+                    />
+                    <span className="menu-text">{sub.channelInfo.title}</span>
+                  </div>
+                ))}
+
+                {subscriptions.length > 3 && !showMore ? (
                   <>
-                    <div
-                      className="menu-item"
-                      onClick={() => navigate(`/channel/test`)}
-                    >
-                      <img
-                        src={thumbnail}
-                        alt="channel-thumbnail"
-                        className="channel-image"
-                      />
-                      <span className="menu-text">Channel1</span>
-                    </div>
-                    <div
-                      className="menu-item"
-                      onClick={() => navigate(`/exploreChannels`)}
-                    >
-                      <AddCircleOutlineIcon />
-                      <span className="menu-text">Browse More</span>
+                    <div className="menu-item" onClick={handleShowMore}>
+                      <ExpandMoreIcon />
+                      <span className="menu-text">Show More</span>
                     </div>
                   </>
                 ) : null}
-                <div
-                  className="menu-item"
-                  onClick={() => setSubscriptions(!subscriptions)}
-                >
-                  <ExpandMoreIcon />
-                  <span className="menu-text">
-                    {subscriptions ? " Show Less" : "Show More"}
-                  </span>
-                </div>
+                {showMore ? (
+                  <div className="menu-item" onClick={() => handleShowLess}>
+                    <ExpandMoreIcon />
+                    <span className="menu-text">Show Less</span>
+                  </div>
+                ) : null}
               </div>
             </div>
           )}

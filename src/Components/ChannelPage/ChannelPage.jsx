@@ -8,7 +8,7 @@ import { getChannelById, getChannelSection } from "../actions";
 import { Nav } from "react-bootstrap";
 import moment from "moment";
 
-const ChannelPage = () => {
+const ChannelPage = ({ userId }) => {
   const { channelId } = useParams();
   const logoStyle = "channel-page";
   const thumbnailStyle = "channel-video-thumbnail";
@@ -29,7 +29,7 @@ const ChannelPage = () => {
     };
     get_video_details();
   }, [channelId]);
-  console.log(channelDetails);
+
   if (loading) {
     return <p>Loading...</p>;
   } else {
@@ -46,7 +46,11 @@ const ChannelPage = () => {
           />
 
           <div className="channel-videos">
-            <ChannelInfo logoStyle={logoStyle} channelID={channelId} />
+            <ChannelInfo
+              logoStyle={logoStyle}
+              channelID={channelId}
+              userId={userId}
+            />
             <hr className="hLine" />
             <div className="video-section">
               {!loading && channelDetails ? (

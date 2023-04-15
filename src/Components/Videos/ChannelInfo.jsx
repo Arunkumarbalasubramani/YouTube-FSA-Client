@@ -2,11 +2,33 @@ import numeral from "numeral";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getChannelIcon } from "../actions";
+import axios from "axios";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
-const ChannelInfo = ({ logoStyle, channelID }) => {
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+const ChannelInfo = ({ logoStyle, channelID, userId }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [channeldetails, setChanneldetails] = useState([]);
+  const [subscription, setSubscription] = useState({
+    channelId: "",
+    channelAvatar: "",
+    channelInfo: {
+      subscribers: "",
+      title: "",
+    },
+  });
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
 
   useEffect(() => {
     const get_channel_details = async () => {
@@ -38,6 +60,23 @@ const ChannelInfo = ({ logoStyle, channelID }) => {
       },
       statistics: { subscriberCount },
     } = channeldetails;
+    const addSubscription = async (e) => {
+      e.preventDefault();
+      setSubscription({
+        channelId: id,
+        channelAvatar: url,
+        channelInfo: {
+          subscribers: subscriberCount,
+          title: title,
+        },
+      });
+
+      const response = await axios.post(
+        `https://youtube-server-app.onrender.com/${userId}/add/subscriptions`,
+        subscription
+      );
+      setOpen(true);
+    };
 
     return (
       <div className="channel-info">
@@ -61,7 +100,18 @@ const ChannelInfo = ({ logoStyle, channelID }) => {
             </div>
           </div>
         </div>
-        <button className="subscribe-btn">Subscribe</button>
+        <button className="subscribe-btn" onClick={addSubscription}>
+          Subscribe
+        </button>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Channel Subscribed
+          </Alert>
+        </Snackbar>
       </div>
     );
   }

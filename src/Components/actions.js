@@ -51,3 +51,35 @@ export const getChannelSection = async (channelId) => {
   );
   return data;
 };
+
+export const getComments = async (userId, videoId) => {
+  const { data } = await axios.get(
+    ` https://youtube-server-app.onrender.com/${userId}/${videoId}/getcomment
+    `
+  );
+  return data;
+};
+
+export const getHistory = async (userId) => {
+  const { data } = await axios.get(
+    ` https://youtube-server-app.onrender.com/${userId}/history
+    `
+  );
+  return data;
+};
+
+export const getLikedVideos = async (userId) => {
+  const { data } = await axios.get(
+    ` https://youtube-server-app.onrender.com/${userId}/likedvideos
+    `
+  );
+  return data;
+};
+
+export const getWatchLater = async (userId) => {
+  const { data } = await axios.get(
+    ` https://youtube-server-app.onrender.com/${userId}/watchlater
+    `
+  );
+  return data;
+};
